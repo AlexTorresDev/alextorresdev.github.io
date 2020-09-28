@@ -1,0 +1,56 @@
+.projects {
+  padding: 30px 0 60px;
+
+  .title {
+    margin-bottom: 40px;
+  }
+
+  .content {
+    display: flex;
+
+    @media screen and (max-width: 748px) {
+      flex-direction: column;
+    }
+
+    .item {
+      flex: 1 0;
+      color: #fff;
+
+      .MuiTypography-h5 {
+        font-weight: 500;
+      }
+
+      .MuiTypography-colorTextSecondary {
+        color: #fff;
+      }
+
+      .MuiCardActionArea-root {
+        height: 100%;
+      }
+
+      &:nth-child(2n) {
+        margin-left: 40px;
+
+        @media screen and (max-width: 748px) {
+          margin: 30px 0 0;
+        }
+      }
+
+      &:nth-child(1) {
+        background: linear-gradient(to right, #373B44, #73C8A9);
+      }
+
+      &:nth-child(2) {
+        background: linear-gradient(to right, #51954b, #0c8199);
+      }
+
+      &:nth-child(3) {
+        background: linear-gradient(to right, #6d518f, #5b8fbf);
+      }
+
+      &:nth-child(4) {
+        background: linear-gradient(to right, #8f7f51, #435174);
+      }
+    }
+  }
+}
