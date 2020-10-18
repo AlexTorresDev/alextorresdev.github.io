@@ -1,0 +1,16 @@
+[
+  {
+    "name": "Custom Electron Titlebar",
+    "desc": "Es una barra de título para ventanas creadas con electron similares a la barra de título de VS Code. Es 100% personalizable en colores, iconos, fuentes, menu, etc.",
+    "link": "./cet",
+    "background": "linear-gradient(to right, #373B44, #73C8A9)",
+    "color":"#fff"
+  },
+  {
+    "name": "PMA Material",
+    "desc": "Es un tema para phpMyAdmin el cual te permite cambiar el diseño y que parezca material design.",
+    "link": "./pma",
+    "background": "linear-gradient(to right, #51954b, #0c8199)",
+    "color": "#fff"
+  }
+]

@@ -13,8 +13,8 @@ function Intro() {
             </Typography>
             <Typography variant="h5">
                 <Twemoji className="twemoji" options={{className: 'mini'}}>
-                    Soy desarrollador de apps móviles en Flutter <span role="img" aria-label="mobile">📱</span> y sitios
-                    web en Angular <span role="img" aria-label="web">💻</span>
+                    Soy desarrollador full-stack freelance <span role="img" aria-label="web">🖥</span> y desarrollador
+                    móvil <span role="img" aria-label="mobile">📱</span>.
                 </Twemoji>
             </Typography>
         </div>

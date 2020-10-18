@@ -21,15 +21,25 @@ function About() {
                 <Twemoji className="twemoji"><span role="img" aria-label="adn">👨🏻‍💻</span> Sobre mi</Twemoji>
             </Typography>
             <Typography gutterBottom variant="h6" component="h1">
-                Mi pasión es desarrollar e investigar sobre cosas nuevas de tecnología, internet de las cosas,
-                inteligencia artificial, seguridad informática, entre otras.
+                Soy una persona a la que le gusta investigar, aprender y enseñar sobre cosas nuevas de tecnología,
+                internet de las cosas, inteligencia artificial, seguridad informática y lenguajes de programación.
+                Uso frameworks como Angular, Spring Boot y
+                Flutter. He manejado diferentes lenguajes de programación como <b>C++, Java, Javascript, Typescript,
+                entre otros</b>. Bases de datos como <b>Oracle, MySQL, PostgreSQL y MongoDB</b>.
             </Typography>
-            <Typography variant="h6" component="h1">
-                Actualmente me encuentro trabajando en varios proyectos móviles usando el Framework Flutter y en algunos
-                web con Angular. Algunas de las cosas que estoy aprendiendo es React y GoLang.
+            <Typography gutterBottom variant="h6" component="h1">
+                Actualmente me encuentro trabajando en varios proyectos móviles usando el Framework <b>Flutter</b> y en
+                algunos
+                web con <b>Angular</b>. También estoy aprendiendo <b>React y NodeJS</b>.
             </Typography>
+            <Twemoji className="twemoji" options={{className: 'mini'}}>
+                Puedes darme un saludo a <a href="/twitter">@AlexTorresSk</a> o dar algunos <span role="img"
+                                                                                                  aria-label="heart">♥</span> por
+                correo.
+            </Twemoji>
             <div className="button-container">
-                <ColorButton  href="https://www.buymeacoffee.com/bjkGN4g" variant="contained" color="primary" startIcon={<EmojiFoodBeverageIcon/>}>
+                <ColorButton href="https://www.buymeacoffee.com/bjkGN4g" variant="contained" color="primary"
+                             startIcon={<EmojiFoodBeverageIcon/>}>
                     Comprame un café
                 </ColorButton>
             </div>

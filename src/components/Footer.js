@@ -1,9 +1,8 @@
 import React from "react";
 import "./Footer.scss"
 import Typography from "@material-ui/core/Typography";
-import {GitHub, Instagram, Twitter} from '@material-ui/icons';
+import {GitHub, LinkedIn, Twitter} from '@material-ui/icons';
 import Twemoji from "react-twemoji";
-import BloggerIcon from "./BloggerIcon";
 
 function Footer() {
     return (
@@ -19,9 +18,8 @@ function Footer() {
                 </Typography>
                 <div className="social">
                     <a className="item" href="./twitter"><Twitter/></a>
-                    <a className="item" href="./instagram"><Instagram/></a>
                     <a className="item" href="./github"><GitHub/></a>
-                    <a className="item" href="./blog"><BloggerIcon/></a>
+                    <a className="item" href="./linkedin"><LinkedIn/></a>
                 </div>
             </div>
             <Typography className="attribution" variant="caption" component="h6">

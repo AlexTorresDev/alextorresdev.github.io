@@ -2,26 +2,28 @@
   padding: 30px 0 60px;
 
   .title {
-    margin-bottom: 40px;
+    margin-bottom: 10px;
   }
 
   .content {
     display: flex;
+    flex-wrap: wrap;
 
     @media screen and (max-width: 748px) {
       flex-direction: column;
     }
 
     .item {
-      flex: 1 0;
-      color: #fff;
+      flex-grow: 1;
+      width: 47%;
+      margin-top: 30px;
+
+      @media screen and (max-width: 748px) {
+        width: 100%;
+      }
 
       .MuiTypography-h5 {
         font-weight: 500;
-      }
-
-      .MuiTypography-colorTextSecondary {
-        color: #fff;
       }
 
       .MuiCardActionArea-root {
@@ -29,27 +31,11 @@
       }
 
       &:nth-child(2n) {
-        margin-left: 40px;
+        margin-left: 30px;
 
         @media screen and (max-width: 748px) {
           margin: 30px 0 0;
         }
-      }
-
-      &:nth-child(1) {
-        background: linear-gradient(to right, #373B44, #73C8A9);
-      }
-
-      &:nth-child(2) {
-        background: linear-gradient(to right, #51954b, #0c8199);
-      }
-
-      &:nth-child(3) {
-        background: linear-gradient(to right, #6d518f, #5b8fbf);
-      }
-
-      &:nth-child(4) {
-        background: linear-gradient(to right, #8f7f51, #435174);
       }
     }
   }
