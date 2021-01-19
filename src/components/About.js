@@ -29,7 +29,7 @@ function About() {
             </Typography>
             <Typography gutterBottom variant="h6" component="h1">
                 Actualmente me encuentro trabajando en varios proyectos móviles usando el Framework <b>Flutter</b> y en
-                algunos
+                algunos proyectos
                 web con <b>Angular</b>. También estoy aprendiendo <b>React y NodeJS</b>.
             </Typography>
             <Twemoji className="twemoji" options={{className: 'mini'}}>

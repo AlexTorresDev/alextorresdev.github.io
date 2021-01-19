@@ -1,7 +1,7 @@
 import React from "react";
 import "./Footer.scss"
 import Typography from "@material-ui/core/Typography";
-import {GitHub, LinkedIn, Twitter} from '@material-ui/icons';
+import {Facebook, GitHub, Instagram, LinkedIn, Twitter} from '@material-ui/icons';
 import Twemoji from "react-twemoji";
 
 function Footer() {
@@ -17,7 +17,9 @@ function Footer() {
                     sociales.
                 </Typography>
                 <div className="social">
+                    <a className="item" href="./facebook"><Facebook/></a>
                     <a className="item" href="./twitter"><Twitter/></a>
+                    <a className="item" href="./instagram"><Instagram/></a>
                     <a className="item" href="./github"><GitHub/></a>
                     <a className="item" href="./linkedin"><LinkedIn/></a>
                 </div>
