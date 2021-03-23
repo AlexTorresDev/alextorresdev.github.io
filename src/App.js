@@ -5,9 +5,9 @@ import Projects from "./components/Projects";
 import About from "./components/About";
 import Footer from "./components/Footer";
 
-function App() {
-    return (
-        <div className="page">
+class App extends React.Component {
+    render() {
+        return <div className="page">
             <div className="container">
                 <Intro/>
                 <Projects/>
@@ -15,7 +15,7 @@ function App() {
                 <Footer/>
             </div>
         </div>
-    );
+    }
 }
 
 export default App;

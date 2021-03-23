@@ -1,22 +1,22 @@
 import React from "react";
 import "./About.scss"
 import Typography from "@material-ui/core/Typography";
-import {Button, withStyles} from "@material-ui/core";
+import { Button, withStyles } from "@material-ui/core";
 import EmojiFoodBeverageIcon from "@material-ui/icons/EmojiFoodBeverage";
 import Twemoji from "react-twemoji";
 
-function About() {
-    const ColorButton = withStyles((theme) => ({
-        root: {
-            backgroundColor: '#16825a',
-            '&:hover': {
-                backgroundColor: '#39b788',
+class About extends React.Component {
+    render() {
+        const ColorButton = withStyles(() => ({
+            root: {
+                backgroundColor: '#16825a',
+                '&:hover': {
+                    backgroundColor: '#39b788',
+                },
             },
-        },
-    }))(Button);
+        }))(Button);
 
-    return (
-        <div className="about">
+        return <div className="about">
             <Typography className="title" variant="h4" component="h1">
                 <Twemoji className="twemoji"><span role="img" aria-label="adn">👨🏻‍💻</span> Sobre mi</Twemoji>
             </Typography>
@@ -32,19 +32,19 @@ function About() {
                 algunos proyectos
                 web con <b>Angular</b>. También estoy aprendiendo <b>React y NodeJS</b>.
             </Typography>
-            <Twemoji className="twemoji" options={{className: 'mini'}}>
+            <Twemoji className="twemoji" options={{ className: 'mini' }}>
                 Puedes darme un saludo a <a href="/twitter">@AlexTorresSk</a> o dar algunos <span role="img"
-                                                                                                  aria-label="heart">♥</span> por
+                    aria-label="heart">♥</span> por
                 correo.
             </Twemoji>
             <div className="button-container">
                 <ColorButton href="https://www.buymeacoffee.com/bjkGN4g" variant="contained" color="primary"
-                             startIcon={<EmojiFoodBeverageIcon/>}>
+                    startIcon={<EmojiFoodBeverageIcon />}>
                     Comprame un café
                 </ColorButton>
             </div>
         </div>
-    );
+    }
 }
 
 export default About;

@@ -7,9 +7,9 @@ import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import Twemoji from "react-twemoji";
 
-function Projects() {
-    return (
-        <div className="projects">
+class Projects extends React.Component {
+    render() {
+        return <div className="projects">
             <Typography className="title" variant="h4" component="h1">
                 <Twemoji className="twemoji"><span role="img" aria-label="adn">🧬</span> Mis proyectos</Twemoji>
             </Typography>
@@ -17,15 +17,15 @@ function Projects() {
                 {
                     projects.map((data, key) => {
                         return (
-                            <Card className="item" key={key} style={{background: data.background}}>
+                            <Card className="item" key={key} style={{ background: data.background }}>
                                 <CardActionArea href={data.link}>
                                     <CardContent>
                                         <Typography gutterBottom variant="h5" component="h2"
-                                                    style={{color: data.color}}>
+                                            style={{ color: data.color }}>
                                             {data.name}
                                         </Typography>
                                         <Typography variant="body1" color="textSecondary" component="p"
-                                                    style={{color: data.color}}>
+                                            style={{ color: data.color }}>
                                             {data.desc}
                                         </Typography>
                                     </CardContent>
@@ -36,7 +36,7 @@ function Projects() {
                 }
             </div>
         </div>
-    );
+    }
 }
 
 export default Projects;
