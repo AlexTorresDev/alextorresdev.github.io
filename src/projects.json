@@ -2,21 +2,21 @@
   {
     "name": "Flutter template",
     "desc": "Es una plantilla para iniciar con el desarrollo de una aplicación móvil desarrollada en Flutter",
-    "link": "./ftemplate",
+    "link": "https://github.com/AlexTorresSk/flutter-template",
     "background": "linear-gradient(45deg, #0d47a1, #03a9f4)",
     "color": "#fff"
   },
   {
     "name": "Custom Electron Titlebar",
     "desc": "Es una barra de título para ventanas creadas con electron similares a la barra de título de VS Code. Es 100% personalizable en colores, iconos, fuentes, menu, etc.",
-    "link": "./cet",
+    "link": "https://github.com/AlexTorresSk/custom-electron-titlebar",
     "background": "linear-gradient(45deg, #373B44, #73C8A9)",
-    "color":"#fff"
+    "color": "#fff"
   },
   {
     "name": "PMA Material",
     "desc": "Es un tema para phpMyAdmin el cual te permite cambiar el diseño y que parezca material design.",
-    "link": "./pma",
+    "link": "https://github.com/AlexTorresSk/PMA-Material",
     "background": "linear-gradient(45deg, #51954b, #0c8199)",
     "color": "#fff"
   }

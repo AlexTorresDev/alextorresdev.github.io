@@ -5,13 +5,12 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import CardActionArea from "@material-ui/core/CardActionArea";
-import Twemoji from "react-twemoji";
 
 class Projects extends React.Component {
     render() {
         return <div className="projects">
             <Typography className="title" variant="h4" component="h1">
-                <Twemoji className="twemoji"><span role="img" aria-label="adn">🧬</span> Mis proyectos</Twemoji>
+                <span role="img" aria-label="adn">🧬</span> Mis proyectos
             </Typography>
             <div className="content">
                 {

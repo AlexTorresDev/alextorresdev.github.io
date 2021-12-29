@@ -7,12 +7,12 @@ import Footer from "./components/Footer";
 
 class App extends React.Component {
     render() {
-        return <div className="page">
+        return <div className="page" style={{ backgroundImage: `url(${process.env.PUBLIC_URL}/images/background.jpg)` }}>
             <div className="container">
-                <Intro/>
-                <Projects/>
-                <About/>
-                <Footer/>
+                <Intro />
+                <About />
+                <Projects />
+                <Footer />
             </div>
         </div>
     }

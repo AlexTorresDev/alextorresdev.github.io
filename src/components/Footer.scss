@@ -15,7 +15,8 @@
       align-items: flex-end;
     }
 
-    a, a:visited {
+    a,
+    a:visited {
       color: #16825a;
       text-decoration: none;
 
@@ -43,7 +44,8 @@
     text-align: end;
 
     .mini {
-      height: 15px!important;
+      height: 12px !important;
+      vertical-align: middle;
     }
   }
 }
