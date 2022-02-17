@@ -1,0 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+label {
+    @apply ml-16 py-0.5 text-xs px-2 ring-1 rounded font-bold uppercase;
+}
