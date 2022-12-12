@@ -1,19 +1,10 @@
 import React from "react";
-import { RiFlutterFill } from "react-icons/ri"
 import { SiPhpmyadmin } from "react-icons/si"
 import { IoLogoElectron } from "react-icons/io5"
 
 const Projects = () => {
 
 	const projects = [
-		{
-			link: "https://github.com/AlexTorresSk/flutter-template",
-			icon: RiFlutterFill,
-			color: "#0468d7",
-			name: "Flutter template",
-			description: "It is a template to start with the development of a mobile application developed in Flutter",
-			status: "active"
-		},
 		{
 			link: "https://github.com/AlexTorresSk/custom-electron-titlebar",
 			icon: IoLogoElectron,
@@ -35,7 +26,7 @@ const Projects = () => {
 	return (
 		<div className="py-8 bg-white dark:bg-gray-900">
 			<div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-				<h2 className="text-2xl font-semibold tracking-wide">🛠️ My projects</h2>
+				<h2 className="text-2xl font-semibold tracking-wide">🛠️ Proyectos</h2>
 
 				<div className="mt-12">
 					<dl className="space-y-10 md:space-y-0 md:grid md:grid-cols-2 md:gap-x-8 md:gap-y-10">
