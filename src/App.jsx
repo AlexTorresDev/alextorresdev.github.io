@@ -1,5 +1,5 @@
 import React from 'react'
-import { SiGithub, SiTwitter } from 'react-icons/si'
+import { SiGithub, SiInstagram, SiTwitter } from 'react-icons/si'
 import image from "./images/loading.webp"
 
 const App = () => {
@@ -17,11 +17,14 @@ const App = () => {
 
           <div className="flex items-center justify-end px-4 pt-8 mt-5">
             <span className='mr-6'>Sígueme ➡️</span>
-            <a className="mx-2 hover:text-primary-500" href="https://twitter.com/AlexTorresSk" target="_blank" rel="noopener noreferrer">
+            <a className="mx-2 hover:text-primary-500" href="https://twitter.com/AlexTorresDev" target="_blank" rel="noopener noreferrer">
               <SiTwitter className="w-6 h-6" />
             </a>
-            <a className="mx-2 hover:text-gray-600" href="https://github.com/AlexTorresSk" target="_blank" rel="noopener noreferrer">
+            <a className="mx-2 hover:text-gray-400" href="https://github.com/AlexTorresDev" target="_blank" rel="noopener noreferrer">
               <SiGithub className="w-6 h-6" />
+            </a>
+            <a className="mx-2 hover:text-pink-500" href="https://instagram.com/AlexTorresDev" target="_blank" rel="noopener noreferrer">
+              <SiInstagram className="w-6 h-6" />
             </a>
           </div>
         </div>
