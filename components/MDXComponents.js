@@ -1,5 +1,5 @@
-import YouTube from "./Youtube"
+import { YouTube } from "./Youtube"
 
-export const MDXComponents = {
+export default {
     YouTube,
 }
