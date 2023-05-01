@@ -1,0 +1,122 @@
+---
+import BaseLayout from "@layouts/BaseLayout.astro";
+import TimeLineElement from "@components/cv/TimeLine.astro";
+---
+
+<BaseLayout title="Hoja de vida">
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Perfil</div>
+  </div>
+
+  <div class="mb-10 text-justify">
+    Tengo +3 años de experiencia en el desarrollo de aplicaciones web y móviles.
+    He trabajado tanto en frontend como en backend, enfoicandome a proyectos
+    personales y de terceros. Trabajo con tecnologías como React, Astro, NodeJS,
+    MongoDB, MySQL, Java, Flutter entre otras. En mi tiempo libre me gusta
+    aprender nuevas tecnologías y compartir mis conocimientos con la comunidad.
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Educación</div>
+  </div>
+
+  <div class="time-line-container grid gap-4 mb-10">
+    <TimeLineElement
+      title="Tecnólogo en Sistematización de Datos"
+      subtitle="2015 - 2021 en Universidad Distrital, Bogotá, Colombia"
+    />
+    <TimeLineElement
+      title="Title Name"
+      subtitle="2022 - actualmente (9º semestre) en Universidad Distrital, Bogotá, Colombia"
+    />
+  </div>
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Experiencia</div>
+  </div>
+
+  <div class="time-line-container mb-10">
+    <TimeLineElement
+      title="Desarrollador FullStack"
+      subtitle="Feb 2023 - actualmente en Tata Consultancy Services, Bogotá, Colombia · En remoto"
+    >
+      <p class="list-disc my-6">
+        Actualmente en proyectos de Bancolombia
+      </p>
+    </TimeLineElement>
+    <TimeLineElement
+      title="Desarrollador FullStack"
+      subtitle="Mar 2022 - Ene 2023 en Indra, Bogotá, Colombia · En remoto"
+    >
+      <ul class="list-disc pl-5 my-6">
+        <li>Desarrollo de aplicativo móvil Lending para Tigo Millicom con Flutter</li>
+        <li>Desarrollo de pruebas usando Cucucumber, Serenity</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+      title="Desarrollador FullStack"
+      subtitle="Oct 2021 - Feb 2022 en DB System, Bogotá, Colombia · En remoto"
+    >
+      <ul class="list-disc pl-5 my-6">
+        <li>Desarrollo de aplicativo web en Angular para universidad de Cundinamarca.</li>
+        <li>Manejo de servidor Tomcat para despliegue de aplicaciones.</li>
+        <li>Manejo de base de datos Oracle y PostgreSQL.</li>
+      </ul>
+    </TimeLineElement>
+    <TimeLineElement
+      title="Desarrollador FullStack"
+      subtitle="Jul 2019 - Sep 2021 en Solredes, Bogotá, Colombia · Hibrido"
+    >
+      <ul class="list-disc pl-5 my-6">
+        <li>
+          Desarrollo de aplicativos móviles con Flutter para municipio de Sopó.
+        </li>
+        <li>
+          Desarrollo de aplicativo móvil en Flutter para seguimiento de camiones
+          y gestión de tickets para Transpremier LLC.
+        </li>
+        <li>
+          Desarrollo de suite administrativa creada en Angular y Spring Boot
+          para el municipio de Sopó.
+        </li>
+        <li>Manejo de servidores Wildfly para despliegue de aplicativos.</li>
+        <li>Manejo de base de datos MySQL, Oracle y Postgresql.</li>
+        <li>
+          Desarrollo de aplicativo web y móvil para manejo de reciclaje con
+          React y Flutter.
+        </li>
+      </ul>
+    </TimeLineElement>
+  </div>
+
+  <!-- <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Certificaciones</div>
+  </div>
+
+  <ul class="list-disc mx-6 mb-10 grid gap-2">
+    <li>
+      <a href="#" target="_blank"> Certification Name (with link)</a>
+    </li>
+    <li>
+      <a href="#" target="_blank"> Certification Name (with link)</a>
+    </li>
+  </ul> -->
+
+  <div class="mb-5">
+    <div class="text-3xl w-full font-bold">Conocimentos y aptitudes</div>
+  </div>
+
+  <ul class="list-disc md:columns-5 columns-2 mx-6">
+    <li>TypeScript</li>
+    <li>Amazon Web Services (AWS)</li>
+    <li>Angular</li>
+    <li>PostgreSQL</li>
+    <li>Flutter</li>
+    <li>Android</li>
+    <li>Git & GitHub</li>
+    <li>JavaScript</li>
+    <li>React</li>
+    <li>Java</li>
+    <li>Spring Boot</li>
+  </ul>
+</BaseLayout>

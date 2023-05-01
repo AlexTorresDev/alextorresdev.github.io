@@ -1,0 +1,7 @@
+.time-line-container>div:last-child .education__time>.education__line {
+    display: none;
+}
+
+pre {
+    @apply !m-0 !pt-0 !pb-0 !pl-0;
+}

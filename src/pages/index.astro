@@ -1,0 +1,80 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "@layouts/BaseLayout.astro";
+import HorizontalCard from "@components/HorizontalCard.astro";
+import Social from "@components/Social.astro";
+
+const posts = (await getCollection("blog")).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+);
+
+const last_posts = posts.slice(0, 3);
+---
+
+<BaseLayout>
+	<div class="pb-12 mt-5">
+		<div class="text-xl py-1">Hola 👋</div>
+		<div class="text-5xl font-bold">Soy Alex</div>
+		<div class="text-3xl py-3 font-bold">
+			Desarrollador y estudiante de ingeniería telemática
+		</div>
+		<div class="py-2">
+			<text class="text-lg">
+				Tengo +3 años de experiencia en el desarrollo de aplicaciones web y móviles.
+				He trabajado tanto en frontend como en backend, enfoicandome a proyectos personales y de terceros.
+				Trabajo con tecnologías como React, Astro, NodeJS, MongoDB, MySQL, Java, Flutter entre otras.
+				En mi tiempo libre me gusta aprender nuevas tecnologías y compartir mis conocimientos con la comunidad.
+			</text>
+		</div>
+		<div class="mt-8">
+			<Social />
+		</div>
+	</div>
+
+	<div>
+		<div class="text-3xl w-full font-bold mb-2">🎊 Mis proyectos</div>
+	</div>
+
+	<HorizontalCard
+		title="Demo Project 1"
+		img="/post_img.webp"
+		desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		url="#"
+		badge="NEW"
+	/>
+	<div class="divider my-0"></div>
+	<HorizontalCard
+		title="Demo Project 2"
+		img="/post_img.webp"
+		desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		url="#"
+	/>
+	<div class="divider my-0"></div>
+	<HorizontalCard
+		title="Demo Project 3"
+		img="/post_img.webp"
+		desc="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+		url="#"
+		badge="FOSS"
+	/>
+
+	<div>
+		<div class="text-3xl w-full font-bold mb-5 mt-10">📝 Últimas publicaciones</div>
+	</div>
+
+	{
+		last_posts.map((post) => (
+			<>
+				<HorizontalCard
+					title={post.data.title}
+					img={post.data.heroImage}
+					desc={post.data.description}
+					url={"/blog/" + post.slug}
+					target="_self"
+					badge={post.data.badge}
+				/>
+				<div class="divider my-0" />
+			</>
+		))
+	}
+</BaseLayout>
