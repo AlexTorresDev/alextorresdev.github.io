@@ -1,18 +1,27 @@
 ---
+import Card from "@components/Cards/Card.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import HorizontalCard from "@components/HorizontalCard.astro";
+
+import { projects } from "../consts";
 ---
 
 <BaseLayout title="Proyectos">
   <div>
-    <div class="text-3xl w-full font-bold mb-5 mt-10"></div>
+    <div class="text-3xl w-full font-bold mb-6 mt-5">Últimos proyectos</div>
   </div>
 
-  <HorizontalCard
-    title="Custom Electron Titlebar"
-    img="/images/cet.webp"
-    desc="Librería para personalizar la barra de titulo de una aplicación electron al estilo VS Code, que es 100% personalizable."
-    url="https://www.npmjs.com/package/custom-electron-titlebar"
-    badge="Activo"
-  />
+  <div class="grid md:grid-cols-2 gap-8">
+    {
+      projects.map((project) => (
+        <Card
+          title={project.title}
+          img={project.img}
+          desc={project.desc}
+          url={project.url}
+          badge={project.badge}
+          tags={project.tags}
+        />
+      ))
+    }
+  </div>
 </BaseLayout>
