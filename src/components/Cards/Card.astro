@@ -6,7 +6,7 @@ const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 
 <div class="w-full">
   <a href={url} target={target}>
-    <div class="card bg-base-300 overflow-hidden rounded-lg transition ease-in-out hover:shadow-xl hover:scale-[102%]">
+    <div class="card bg-base-200 border-base-content border-[1px] border-solid border-opacity-10 overflow-hidden rounded-lg transition ease-in-out hover:shadow-xl hover:scale-[102%] hover:bg-base-300">
       <Image aspectRatio="16:9" width={750} format="webp" src={img} alt={title} />
       <div class="card-body p-6 gap-4">
         <h2 class="card-title">
