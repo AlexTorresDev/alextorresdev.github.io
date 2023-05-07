@@ -1,7 +1,7 @@
 ---
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
-import '../styles/global.css';
+import "../styles/global.css";
 
 export interface Props {
 	title: string;
@@ -9,7 +9,7 @@ export interface Props {
 	image?: string;
 }
 
-const { title, description, image = '/social_img.webp' } = Astro.props;
+const { title, description, image = "/social_img.webp" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -36,3 +36,12 @@ const { title, description, image = '/social_img.webp' } = Astro.props;
 <meta property="twitter:title" content={title} />
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
+
+<script is:inline>
+	document.addEventListener("DOMContentLoaded", () => {
+		Array.from(document.querySelectorAll("pre")).forEach((element) => {
+			element.removeAttribute("style");
+			element.outerHTML = `<div class="mockup-code">${element.outerHTML}</div>`;
+		});
+	});
+</script>
