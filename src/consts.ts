@@ -1,4 +1,6 @@
-const projects = [
+export const GITHUB_EDIT_URL = ''
+
+export const projects = [
   {
     title: "Custom Electron Titlebar",
     img: "/images/cet.webp",
@@ -24,5 +26,3 @@ const projects = [
     tags: ["Material", "PHPMyAdmin", "PhP"]
   }
 ]
-
-export { projects }
