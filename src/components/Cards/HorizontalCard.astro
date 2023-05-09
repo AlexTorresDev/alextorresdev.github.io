@@ -21,15 +21,33 @@ import { Image } from "@astrojs/image/components";
         )
       }
       <div class="grow w-full">
-        <h1 class="text-xl font-bold">
+        <h2 class="flex items-center gap-3 text-xl font-bold">
           {title}
-          {badge && <span class="badge badge-secondary font-normal mx-2">{badge}</span>}
-        </h1>
+          {
+            badge && (
+              <span
+                class:list={[
+                  "badge font-normal bg-opacity-60 text-white",
+                  {
+                    "badge-success": badge === "Activo",
+                    "badge-warning": badge === "Archivado",
+                    "badge-info": badge === "Pausado",
+                    "badge-secondary": badge === "Próximamente",
+                  },
+                ]}
+              >
+                {badge}
+              </span>
+            )
+          }
+        </h2>
         <p class="py-1 text-1xl">{desc}</p>
         <div class="card-actions justify-end">
           {
             tags &&
-              tags.map((tag) => <span class="badge badge-outline mt-4">{tag}</span>)
+              tags.map((tag) => (
+                <span class="badge badge-outline mt-4">{tag}</span>
+              ))
           }
         </div>
       </div>

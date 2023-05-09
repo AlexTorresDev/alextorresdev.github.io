@@ -17,13 +17,13 @@ const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
         alt={title}
       />
       <div class="card-body p-6 gap-4">
-        <h2 class="card-title">
+        <h2 class="flex items-center gap-3 card-title">
           {title}
           {
             badge && (
               <span
                 class:list={[
-                  "badge",
+                  "badge font-normal bg-opacity-60 text-white",
                   {
                     "badge-success": badge === "Activo",
                     "badge-warning": badge === "Archivado",

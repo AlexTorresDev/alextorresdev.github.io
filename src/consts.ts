@@ -23,6 +23,6 @@ export const projects = [
     desc: "Tema para PHPMyAdmin basado en Material Design.",
     url: "https://github.com/AlexTorresDev/PMA-Material",
     badge: "Archivado",
-    tags: ["Material", "PHPMyAdmin", "PhP"]
+    tags: ["Material", "PHPMyAdmin", "PHP"]
   }
 ]
