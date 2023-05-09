@@ -1,22 +1,50 @@
 ---
+import type { MarkdownHeading } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import { Image } from "@astrojs/image/components";
 import dayjs from "dayjs";
 import localizedFormat from "dayjs/plugin/localizedFormat";
-
 import BaseLayout from "@layouts/BaseLayout.astro";
+import RightSidebar from "@components/RightSidebar/RightSidebar.astro";
+import TableOfContents from "@components/RightSidebar/TableOfContents";
+import { GITHUB_EDIT_URL } from "src/consts";
+import Navigation from "@components/Navigation.astro";
 
-type Props = CollectionEntry<"blog">["data"];
+type Props = CollectionEntry<"blog">["data"] & {
+  id: string;
+  headings: MarkdownHeading[];
+};
 
-const { title, description, pubDate, updatedDate, heroImage, badge } =
-  Astro.props;
+const postEntries = await getCollection("blog");
+
+const {
+  id,
+  headings,
+  title,
+  description,
+  heroImage,
+  pubDate,
+  badge,
+  updatedDate,
+} = Astro.props;
 dayjs.extend(localizedFormat);
 const displayDate = dayjs(pubDate).format("ll");
-import { Image } from "@astrojs/image/components";
-import { CollectionEntry } from "astro:content";
+const currentPage = Astro.url.pathname;
+const currentFile = `src/content/docs${currentPage.replace(/\/?docs/, "")}.md`;
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+
+const index = postEntries.findIndex(
+  (p) => p.id === id && p.data.pubDate === pubDate
+);
+const pagination = {
+  previous: postEntries[index + 1],
+  next: postEntries[index - 1],
+};
 ---
 
 <BaseLayout title={title} description={description} image={heroImage}>
-  <main class="md:flex md:justify-center">
-    <article class="prose prose-lg max-w-[750px] prose-img:mx-auto">
+  <div class="md:flex md:gap-16 mb-16">
+    <article class="prose prose-lg prose-img:mx-auto">
       {
         heroImage && (
           <Image
@@ -31,19 +59,70 @@ import { CollectionEntry } from "astro:content";
         )
       }
       <h1 class="title my-2 text-4xl font-bold">{title}</h1>
-      {pubDate && <time>{displayDate}</time>}
-      <br />
-      {badge && <div class="badge badge-secondary my-1">{badge}</div>}
-      {
-        updatedDate && (
-          <div>
-            {" "}
-            Last updated on <time>{updatedDate}</time>{" "}
+      <div
+        class="flex justify-between flex-col gap-6 sm:flex-row sm:items-center"
+      >
+        <div>
+          {pubDate && <time>{displayDate}</time>}
+          <br />
+          {badge && <div class="badge badge-secondary my-1">{badge}</div>}
+          {
+            updatedDate && (
+              <div>
+                {" "}
+                Last updated on <time>{updatedDate}</time>{" "}
+              </div>
+            )
+          }
+        </div>
+        <div class="dropdown lg:hidden mb-8 flex justify-end">
+          <button type="button" tabindex="0" class="btn gap-2">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-5 w-5"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h7"></path>
+            </svg>
+            <span>Tabla de contenidos</span>
+          </button>
+
+          <div
+            tabindex="0"
+            class="dropdown-content mt-3 shadow bg-base-100 rounded-md w-52 overflow-hidden not-prose"
+          >
+            <TableOfContents
+              client:media="(max-width: 50em)"
+              headings={headings}
+              showTitle={false}
+            />
           </div>
-        )
-      }
+        </div>
+      </div>
       <div class="divider my-2"></div>
       <slot />
+
+      <Navigation {...pagination} />
     </article>
-  </main>
+
+    <RightSidebar headings={headings} githubEditUrl={githubEditUrl} />
+  </div>
 </BaseLayout>
+
+<style is:inline>
+  main {
+    max-width: 100% !important;
+    width: 1152px !important;
+  }
+
+  article {
+    min-width: calc(100% - 320px);
+    margin: 0 auto;
+  }
+</style>

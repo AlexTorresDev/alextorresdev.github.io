@@ -13,7 +13,7 @@ const menuItems = [
     text: "Proyectos",
   },
   {
-    href: "/blog/",
+    href: "/blog",
     text: "Blog",
   },
   {
@@ -25,6 +25,8 @@ const menuItems = [
     text: "Contacto",
   },
 ];
+
+const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, "/blog");
 ---
 
 <ul
@@ -42,9 +44,10 @@ const menuItems = [
       <li>
         <a
           class:list={[
-            'py-[6px]',
+            "py-[6px]",
             {
-              "bg-primary text-primary-content font-bold": currentPath === item.href,
+              "bg-primary text-primary-content font-bold":
+                currentItem === item.href,
             },
           ]}
           href={item.href}

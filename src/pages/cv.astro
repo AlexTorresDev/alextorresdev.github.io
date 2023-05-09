@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "@layouts/BaseLayout.astro";
-import TimeLineElement from "@components/cv/TimeLine.astro";
+import TimeLineElement from "@components/TimeLine.astro";
 ---
 
 <BaseLayout title="Hoja de vida">
@@ -26,7 +26,7 @@ import TimeLineElement from "@components/cv/TimeLine.astro";
       subtitle="2015 - 2021 en Universidad Distrital, Bogotá, Colombia"
     />
     <TimeLineElement
-      title="Title Name"
+      title="Ingeniería en Telemática"
       subtitle="2022 - actualmente (9º semestre) en Universidad Distrital, Bogotá, Colombia"
     />
   </div>
@@ -38,34 +38,44 @@ import TimeLineElement from "@components/cv/TimeLine.astro";
   <div class="time-line-container mb-10">
     <TimeLineElement
       title="Desarrollador FullStack"
-      subtitle="Feb 2023 - actualmente en Tata Consultancy Services, Bogotá, Colombia · En remoto"
+      subtitle="Feb 2023 - actualmente en Tata Consultancy Services, Bogotá, Colombia"
+      modality="En remoto"
     >
-      <p class="list-disc my-6">
-        Actualmente en proyectos de Bancolombia
-      </p>
+      <p class="list-disc my-6">Actualmente en proyectos de Bancolombia</p>
     </TimeLineElement>
+
     <TimeLineElement
       title="Desarrollador FullStack"
-      subtitle="Mar 2022 - Ene 2023 en Indra, Bogotá, Colombia · En remoto"
+      subtitle="Mar 2022 - Ene 2023 en Indra, Bogotá, Colombia"
+      modality="En remoto"
     >
       <ul class="list-disc pl-5 my-6">
-        <li>Desarrollo de aplicativo móvil Lending para Tigo Millicom con Flutter</li>
+        <li>
+          Desarrollo de aplicativo móvil Lending para Tigo Millicom con Flutter
+        </li>
         <li>Desarrollo de pruebas usando Cucucumber, Serenity</li>
       </ul>
     </TimeLineElement>
+
     <TimeLineElement
       title="Desarrollador FullStack"
-      subtitle="Oct 2021 - Feb 2022 en DB System, Bogotá, Colombia · En remoto"
+      subtitle="Oct 2021 - Feb 2022 en DB System, Bogotá, Colombia"
+      modality="En remoto"
     >
       <ul class="list-disc pl-5 my-6">
-        <li>Desarrollo de aplicativo web en Angular para universidad de Cundinamarca.</li>
+        <li>
+          Desarrollo de aplicativo web en Angular para universidad de
+          Cundinamarca.
+        </li>
         <li>Manejo de servidor Tomcat para despliegue de aplicaciones.</li>
         <li>Manejo de base de datos Oracle y PostgreSQL.</li>
       </ul>
     </TimeLineElement>
+
     <TimeLineElement
       title="Desarrollador FullStack"
-      subtitle="Jul 2019 - Sep 2021 en Solredes, Bogotá, Colombia · Hibrido"
+      subtitle="Jul 2019 - Sep 2021 en Solredes, Bogotá, Colombia"
+      modality="Hibrido"
     >
       <ul class="list-disc pl-5 my-6">
         <li>
@@ -89,18 +99,21 @@ import TimeLineElement from "@components/cv/TimeLine.astro";
     </TimeLineElement>
   </div>
 
-  <!-- <div class="mb-5">
+  <div class="mb-5">
     <div class="text-3xl w-full font-bold">Certificaciones</div>
   </div>
 
   <ul class="list-disc mx-6 mb-10 grid gap-2">
     <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
+      <a
+        href="https://platzi.com/p/alextorresdev/curso/2405-git-github-appsco/diploma/detalle"
+        target="_blank"
+      >
+        Curso Profesional de Git y GitHub
+        <span class="badge badge-primary">Platzi</span>
+      </a>
     </li>
-    <li>
-      <a href="#" target="_blank"> Certification Name (with link)</a>
-    </li>
-  </ul> -->
+  </ul>
 
   <div class="mb-5">
     <div class="text-3xl w-full font-bold">Conocimentos y aptitudes</div>

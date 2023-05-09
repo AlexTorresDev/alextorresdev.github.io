@@ -3,6 +3,7 @@
     "astro",
     "astrojs",
     "daisyui",
+    "preact",
     "tailwindcss",
     "tsconfigs"
   ]

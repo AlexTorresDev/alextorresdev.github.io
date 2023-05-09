@@ -6,19 +6,47 @@ const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 
 <div class="w-full">
   <a href={url} target={target}>
-    <div class="card bg-base-200 border-base-content border-[1px] border-solid border-opacity-10 overflow-hidden rounded-lg transition ease-in-out hover:shadow-xl hover:scale-[102%] hover:bg-base-300">
-      <Image aspectRatio="16:9" width={750} format="webp" src={img} alt={title} />
+    <div
+      class="card bg-base-200 border-base-content border-[1px] border-solid border-opacity-10 overflow-hidden rounded-lg transition ease-in-out hover:shadow-xl hover:scale-[102%] hover:bg-base-300"
+    >
+      <Image
+        aspectRatio="16:9"
+        width={750}
+        format="webp"
+        src={img}
+        alt={title}
+      />
       <div class="card-body p-6 gap-4">
         <h2 class="card-title">
           {title}
-          {badge && <div class="badge badge-secondary">{badge}</div>}
+          {
+            badge && (
+              <span
+                class:list={[
+                  "badge",
+                  {
+                    "badge-success": badge === "Activo",
+                    "badge-warning": badge === "Archivado",
+                    "badge-info": badge === "Pausado",
+                    "badge-secondary": badge === "Próximamente",
+                  },
+                ]}
+              >
+                {badge}
+              </span>
+            )
+          }
         </h2>
         <p>{desc}</p>
         <div class="card-actions justify-end">
-          {tags && tags.map((tag: string) => <div class="badge badge-outline">{tag}</div>)}
+          {
+            tags &&
+              tags.map((tag: string) => (
+                <span class="badge badge-outline">{tag}</span>
+              ))
+          }
         </div>
       </div>
     </div>
   </a>
 </div>
-

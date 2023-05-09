@@ -1,7 +1,31 @@
 .time-line-container>div:last-child .education__time>.education__line {
-    display: none;
+    @apply hidden
 }
 
-pre {
-    @apply !m-0 !pt-0 !pb-0 !pl-0;
+.mockup-code {
+    @apply bg-base-200 mb-5 max-w-none min-w-[auto] border-solid border-[1px] border-base-300;
+}
+
+.mockup-code:before {
+    @apply sticky left-0 text-base-content;
+}
+
+article .mockup-code pre {
+    @apply !m-0 !p-0 !bg-transparent !rounded-none !overflow-x-visible !text-base;
+}
+
+article .mockup-code pre code {
+    @apply inline-block px-6;
+}
+
+article .mockup-code pre:before {
+    @apply hidden;
+}
+
+article .footnotes {
+    @apply text-base;
+}
+
+article .footnotes li p {
+    @apply !m-0;
 }

@@ -1,36 +1,6 @@
-const themes = [
-  "light",
-  "dark",
-  "cupcake",
-  "bumblebee",
-  "emerald",
-  "corporate",
-  "synthwave",
-  "retro",
-  "cyberpunk",
-  "valentine",
-  "halloween",
-  "garden",
-  "forest",
-  "aqua",
-  "lofi",
-  "pastel",
-  "fantasy",
-  "wireframe",
-  "black",
-  "luxury",
-  "dracula",
-  "cmyk",
-  "autumn",
-  "business",
-  "acid",
-  "lemonade",
-  "night",
-  "coffee",
-  "winter",
-]
+export const GITHUB_EDIT_URL = ''
 
-const projects = [
+export const projects = [
   {
     title: "Custom Electron Titlebar",
     img: "/images/cet.webp",
@@ -56,5 +26,3 @@ const projects = [
     tags: ["Material", "PHPMyAdmin", "PhP"]
   }
 ]
-
-export { themes, projects }
