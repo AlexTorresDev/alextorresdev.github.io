@@ -20,6 +20,6 @@ const { ...data } = entry.data;
 const { Content, headings } = await entry.render();
 ---
 
-<PostLayout id={entry.id} headings={headings} {...entry.data}>
+<PostLayout id={entry.id} headings={headings} {...data}>
     <Content />
 </PostLayout>
