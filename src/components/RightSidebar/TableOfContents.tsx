@@ -8,6 +8,11 @@ type ItemOffsets = {
   topOffset: number;
 };
 
+interface TableOfContentsProps {
+  headings: MarkdownHeading[];
+  showTitle?: boolean;
+}
+
 const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTitle?: boolean }> = ({
   headings = [],
   showTitle = true,
@@ -77,10 +82,12 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTi
         {headings
           .filter(({ depth }) => depth > 1 && depth < 4)
           .map((heading) => (
-            <li
-              className={currentID === heading.slug ? 'bordered' : ''}
-            >
-              <a href={`#${heading.slug}`} onClick={onLinkClick}>
+            <li key={heading.slug} >
+              <a
+                className={currentID === heading.slug ? 'active' : ''}
+                href={`#${heading.slug}`}
+                onClick={onLinkClick}
+              >
                 {unescape(heading.text)}
               </a>
             </li>

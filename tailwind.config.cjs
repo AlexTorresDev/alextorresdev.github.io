@@ -11,7 +11,7 @@ module.exports = {
 		themes: [
 			{
 				light: {
-					...require("daisyui/src/colors/themes")["[data-theme=light]"],
+					...require("daisyui/src/theming/themes")["[data-theme=light]"],
 					"primary": "#10b981",
 					"secondary": "#3b82f6",
 					"accent": "#06b6d4",
@@ -20,10 +20,13 @@ module.exports = {
 					"base-300": "#e5e5e5",
 				},
 				dark: {
-					...require("daisyui/src/colors/themes")["[data-theme=halloween]"],
+					...require("daisyui/src/theming/themes")["[data-theme=forest]"],
 					"primary": "#10b981",
 					"secondary": "#3b82f6",
 					"accent": "#06b6d4",
+					'base-100': '#212121',
+					'base-200': '#1e1e1e',
+					'base-300': '#1b1b1b',
 				},
 			},
 		],
