@@ -4,7 +4,7 @@ description: "En este post te voy a dar algunos consejos que te ayudarán a mejo
 pubDate: "16 Jul 2023"
 updatedDate: "16 Jul 2023"
 heroImage: {
-  source: "images/blog/tips-flutter.webp",
+  source: "/images/blog/tips-flutter.webp",
   attribution: "Photo by [**Cheesecake Labs**](https://cheesecakelabs.com/)"  
 }
 badge: "Flutter"
