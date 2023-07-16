@@ -5,8 +5,11 @@ const blog = defineCollection({
         title: z.string(),
         description: z.string(),
         pubDate: z.coerce.date(),
-        updatedDate: z.string().optional(),
-        heroImage: z.string().optional(),
+        updatedDate: z.coerce.date().optional(),
+        heroImage: z.object({
+            source: z.string(),
+            attribution: z.string().optional(),
+        }).optional(),
         badge: z.string().optional(),
     })
 });

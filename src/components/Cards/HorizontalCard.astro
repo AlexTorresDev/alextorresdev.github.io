@@ -1,6 +1,7 @@
 ---
 const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
 import { Image } from "@astrojs/image/components";
+import Badge from "@components/Badge.astro";
 ---
 
 <div
@@ -25,19 +26,7 @@ import { Image } from "@astrojs/image/components";
           {title}
           {
             badge && (
-              <span
-                class:list={[
-                  "badge font-normal bg-opacity-60 text-white",
-                  {
-                    "badge-success": badge === "Activo",
-                    "badge-warning": badge === "Archivado",
-                    "badge-info": badge === "Pausado",
-                    "badge-secondary": badge === "Próximamente",
-                  },
-                ]}
-              >
-                {badge}
-              </span>
+              <Badge text={badge} />
             )
           }
         </h2>

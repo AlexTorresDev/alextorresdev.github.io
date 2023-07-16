@@ -1,0 +1,17 @@
+---
+const { text } = Astro.props;
+---
+
+<span
+  class:list={[
+    "badge badge-primary font-normal bg-opacity-60 text-white",
+    {
+      "badge-success": text === "Activo",
+      "badge-warning": text === "Archivado",
+      "badge-info": text === "Pausado",
+      "badge-secondary": text === "Próximamente",
+    },
+  ]}
+>
+  {text}
+</span>
