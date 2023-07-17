@@ -16,8 +16,6 @@ const markdownConfig = {
   }
 };
 
-
-// https://astro.build/config
 export default defineConfig({
   site: 'https://alextrs.dev',
   markdown: markdownConfig,
