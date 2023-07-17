@@ -2,6 +2,8 @@ import { APIRoute } from 'astro'
 import { getCollection } from 'astro:content'
 import { marked } from 'marked'
 
+export const prerender = false
+
 marked.setOptions({
   headerIds: false,
   mangle: false,
