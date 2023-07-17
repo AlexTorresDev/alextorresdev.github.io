@@ -1,4 +1,4 @@
-.time-line-container>div:last-child .education__time>.education__line {
+.time-line-container > div:last-child .education__time > .education__line {
     @apply hidden
 }
 
