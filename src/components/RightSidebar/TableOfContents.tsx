@@ -8,11 +8,6 @@ type ItemOffsets = {
   topOffset: number;
 };
 
-interface TableOfContentsProps {
-  headings: MarkdownHeading[];
-  showTitle?: boolean;
-}
-
 const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTitle?: boolean }> = ({
   headings = [],
   showTitle = true,
@@ -54,18 +49,13 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTi
     };
 
     const observerOptions: IntersectionObserverInit = {
-      // Negative top margin accounts for `scroll-margin`.
-      // Negative bottom margin means heading needs to be towards top of viewport to trigger intersection.
       rootMargin: '-100px 0% -66%',
       threshold: 1,
     };
 
     const headingsObserver = new IntersectionObserver(setCurrent, observerOptions);
-
-    // Observe all the headings in the main page content.
     document.querySelectorAll('article :is(h1,h2,h3)').forEach((h) => headingsObserver.observe(h));
 
-    // Stop observing when the component is unmounted.
     return () => headingsObserver.disconnect();
   }, [toc.current]);
 
