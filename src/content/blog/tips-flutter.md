@@ -7,7 +7,7 @@ heroImage: {
   source: "/images/blog/tips-flutter.webp",
   attribution: "Photo by [**Cheesecake Labs**](https://cheesecakelabs.com/)"  
 }
-badge: "Flutter"
+tags: ["Flutter", "Dart"]
 
 ---
 
