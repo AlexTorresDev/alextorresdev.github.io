@@ -34,7 +34,6 @@ const last_posts = posts.slice(0, 3);
 					img={project.img}
 					desc={project.desc}
 					url={project.url}
-					badge={project.badge}
 					tags={project.tags}
 				/>
 				<div class="divider my-1 before:bg-transparent after:bg-transparent" />
@@ -60,7 +59,7 @@ const last_posts = posts.slice(0, 3);
 						desc={post.data.description}
 						url={"/blog/" + post.slug}
 						target="_self"
-						badge={post.data.badge}
+						tags={post.data.tags}
 					/>
 					<div class="divider my-1 before:bg-transparent after:bg-transparent" />
 				</>
