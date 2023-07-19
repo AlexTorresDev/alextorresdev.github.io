@@ -6,10 +6,6 @@ on:
 
   workflow_dispatch:
 
-env:
-  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-  NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
-
 permissions:
   contents: read
   pages: write
@@ -21,6 +17,10 @@ jobs:
     steps:
       - name: Checkout your repository using git
         uses: actions/checkout@v3
+      - name: Create environment variables
+        run: |
+          echo "NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}" > .env
+          echo "NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}" >> .env
       - name: Install, build, and upload your site
         uses: withastro/action@v0
 
