@@ -5,65 +5,79 @@ import Social from "@components/Social.astro";
 import NoPost from "@components/NoPost.astro";
 import About from "@components/About.astro";
 import HorizontalCard from "@components/Cards/HorizontalCard.astro";
-import { projects } from "src/consts";
+import { getProjects } from "@utils/notion-connect";
 
 const posts = (await getCollection("blog")).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 
+const projects = await getProjects();
 const last_posts = posts.slice(0, 3);
+const last_projects = projects.slice(0, 3);
 ---
 
 <BaseLayout>
-	<div class="pb-12 mt-5">
-		<About />
-		<div class="mt-8">
-			<Social />
-		</div>
-	</div>
+  <div class="pb-12 mt-5">
+    <About />
+    <div class="mt-8">
+      <Social />
+    </div>
+  </div>
 
-	<div>
-		<h2 class="text-3xl w-full font-bold mt-16 mb-7">🎊 Últimos proyectos</h2>
-	</div>
+  <div>
+    <h2 class="text-3xl w-full font-bold mt-16 mb-7">🎊 Últimos proyectos</h2>
+  </div>
 
-	{
-		projects.map((project) => (
-			<>
-				<HorizontalCard
-					title={project.title}
-					img={project.img}
-					desc={project.desc}
-					url={project.url}
-					tags={project.tags}
-				/>
-				<div class="divider my-1 before:bg-transparent after:bg-transparent" />
-			</>
-		))
-	}
+  {
+    last_projects.map((project) => (
+      <>
+        <HorizontalCard
+          title={project.name}
+          img={project.image}
+          desc={project.description}
+          url={project.repo}
+          tags={[...project.tags, ...project.languages]}
+        />
+        <div class="divider my-1 before:bg-transparent after:bg-transparent" />
+      </>
+    ))
+  }
 
-	<div>
-		<div class="text-3xl w-full font-bold mb-5 mt-12">
-			📝 Últimas publicaciones
-		</div>
-	</div>
+  <div class="flex justify-center mt-4">
+    <a class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2" href="/projects">
+      Ver todos los proyectos
+    </a>
+  </div>
 
-	{
-		last_posts.length === 0 ? (
-			<NoPost />
-		) : (
-			last_posts.map((post) => (
-				<>
-					<HorizontalCard
-						title={post.data.title}
-						img={post.data.heroImage?.source}
-						desc={post.data.description}
-						url={"/blog/" + post.slug}
-						target="_self"
-						tags={post.data.tags}
-					/>
-					<div class="divider my-1 before:bg-transparent after:bg-transparent" />
-				</>
-			))
-		)
-	}
+  <div>
+    <div class="text-3xl w-full font-bold mb-5 mt-28">
+      📝 Últimas publicaciones
+    </div>
+  </div>
+
+  {
+    last_posts.length === 0 ? (
+      <NoPost />
+    ) : (
+      last_posts.map((post) => (
+        <>
+          <HorizontalCard
+            title={post.data.title}
+            img={post.data.heroImage?.source}
+            desc={post.data.description}
+            url={"/blog/" + post.slug}
+            target="_self"
+            tags={post.data.tags}
+          />
+          <div class="divider my-1 before:bg-transparent after:bg-transparent" />
+        </>
+      ))
+    )
+  }
+
+  <div class="flex justify-center mt-4 mb-20">
+    <a class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2" href="/blog">
+      Ver tas las publicaciones
+    </a>
+  </div>
 </BaseLayout>
