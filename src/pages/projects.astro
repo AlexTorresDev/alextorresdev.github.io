@@ -1,7 +1,7 @@
 ---
 import Card from "@components/Cards/Card.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
-import { getProjects } from "../utils/notion-connect";
+import { getProjects } from "@utils/notion-connect";
 
 const projects = await getProjects();
 ---
