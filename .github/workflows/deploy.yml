@@ -6,6 +6,10 @@ on:
 
   workflow_dispatch:
 
+env:
+  NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
+  NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}
+
 permissions:
   contents: read
   pages: write

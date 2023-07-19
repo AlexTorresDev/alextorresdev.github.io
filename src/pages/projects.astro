@@ -1,8 +1,9 @@
 ---
 import Card from "@components/Cards/Card.astro";
 import BaseLayout from "@layouts/BaseLayout.astro";
+import { getProjects } from "../utils/notion-connect";
 
-import { projects } from "../consts";
+const projects = await getProjects();
 ---
 
 <BaseLayout title="Proyectos">
@@ -14,12 +15,12 @@ import { projects } from "../consts";
     {
       projects.map((project) => (
         <Card
-          title={project.title}
-          img={project.img}
-          desc={project.desc}
-          url={project.url}
-          badge={project.badge}
-          tags={project.tags}
+          title={project.name}
+          img={project.image}
+          desc={project.description}
+          url={project.repo}
+          badge={project.status}
+          tags={[...project.tags, ...project.languages]}
         />
       ))
     }
