@@ -2,10 +2,7 @@
 import type { MarkdownHeading } from "astro";
 import { CollectionEntry, getCollection, getEntries } from "astro:content";
 import { Image } from "@astrojs/image/components";
-import { marked } from "marked";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
-
+import snarkdown from 'snarkdown'
 import { SITE_TITLE } from "src/config";
 import { GITHUB_EDIT_URL } from "src/consts";
 import BaseLayout from "@layouts/BaseLayout.astro";
@@ -14,17 +11,17 @@ import TableOfContents from "@components/RightSidebar/TableOfContents";
 import Navigation from "@components/Navigation.astro";
 import Badge from "@components/Badge.astro";
 
-marked.setOptions({
-  mangle: false,
-  headerIds: false,
-});
-
-dayjs.extend(localizedFormat);
 
 type Props = CollectionEntry<"blog">["data"] & {
   id: string;
   headings: MarkdownHeading[];
 };
+
+const dateFormat = Intl.DateTimeFormat("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+})
 
 const postEntries = await getCollection("blog");
 
@@ -40,8 +37,8 @@ const {
   relatedPosts,
 } = Astro.props;
 
-const displayDate = dayjs(pubDate).format("ll");
-const displayUpdateDate = dayjs(updatedDate).format("ll");
+const displayDate = dateFormat.format(pubDate);
+const displayUpdateDate = dateFormat.format(updatedDate);
 
 const currentPage = Astro.url.pathname;
 const currentFile = `src/content${currentPage.replace(/\/?docs/, "")}.md`;
@@ -144,12 +141,12 @@ if (relatedPosts) {
               format="webp"
               src={heroImage.source}
               alt={title}
-              class="w-full rounded overflow-hidden -mb-2"
+              class="w-full rounded overflow-hidden mb-2"
             />
             {heroImage.attribution && (
               <div
                 class="text-center text-sm opacity-60"
-                set:html={marked(heroImage.attribution)}
+                set:html={snarkdown(heroImage.attribution)}
               />
             )}
           </div>

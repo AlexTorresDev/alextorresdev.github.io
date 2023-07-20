@@ -4,6 +4,7 @@ import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwind from "@astrojs/tailwind";
 import preact from "@astrojs/preact";
+import vercel from "@astrojs/vercel/serverless";
 
 const markdownConfig = {
   drafts: true,
@@ -16,8 +17,11 @@ const markdownConfig = {
   }
 };
 
+// https://astro.build/config
 export default defineConfig({
   site: 'https://alextrs.dev',
+  output: 'hybrid',
+  adapter: vercel(),
   markdown: markdownConfig,
   integrations: [sitemap(), tailwind(), preact(), mdx(markdownConfig), image({
     serviceEntryPoint: '@astrojs/image/sharp',
