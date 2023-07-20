@@ -2,12 +2,12 @@ import { Client } from "@notionhq/client"
 import { DatabaseObjectResponse } from "@notionhq/client/build/src/api-endpoints"
 
 const notion = new Client({
-  auth: import.meta.env.NOTION_TOKEN,
+  auth: import.meta.env.NOTION_TOKEN
 })
 
 export const getProjects = async () => {
   const { results } = await notion.databases.query({
-    database_id: import.meta.env.NOTION_DATABASE_ID,
+    database_id: import.meta.env.NOTION_DATABASE_ID
   })
 
   return results.map((page: DatabaseObjectResponse) => {
@@ -21,7 +21,7 @@ export const getProjects = async () => {
       status: status.status.name ?? 'Sin estado',
       languages: languages.multi_select.map((lang) => lang.name),
       tags: tags.multi_select.map((tag) => tag.name),
-      repo: repo.url,
+      repo: repo.url
     }
   })
 }

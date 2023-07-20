@@ -1,13 +1,13 @@
 ---
-import "../styles/global.css";
+import '../styles/global.css'
 
 export interface Props {
-	title: string;
-	description: string;
-	image?: string;
+  title: string
+  description: string
+  image?: string
 }
 
-const { title, description, image = "/images/social_img.webp" } = Astro.props;
+const { title, description, image = '/images/social_img.webp' } = Astro.props
 ---
 
 <!-- Global Metadata -->
@@ -36,10 +36,10 @@ const { title, description, image = "/images/social_img.webp" } = Astro.props;
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
 <script is:inline>
-	document.addEventListener("DOMContentLoaded", () => {
-		Array.from(document.querySelectorAll("pre")).forEach((element) => {
-			element.removeAttribute("style");
-			element.outerHTML = `<div class="mockup-code">${element.outerHTML}</div>`;
-		});
-	});
+document.addEventListener('DOMContentLoaded', () => {
+	Array.from(document.querySelectorAll('pre')).forEach((element) => {
+		element.removeAttribute('style')
+		element.outerHTML = `<div class="mockup-code">${element.outerHTML}</div>`
+	})
+})
 </script>

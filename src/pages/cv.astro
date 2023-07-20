@@ -1,6 +1,6 @@
 ---
-import BaseLayout from "@layouts/BaseLayout.astro";
-import TimeLineElement from "@components/TimeLine.astro";
+import BaseLayout from '@layouts/BaseLayout.astro'
+import TimeLineElement from '@components/TimeLine.astro'
 ---
 
 <BaseLayout title="Hoja de vida">
@@ -8,8 +8,8 @@ import TimeLineElement from "@components/TimeLine.astro";
     <span class="text-3xl w-full font-bold">Perfil</span>
   </div>
 
-  <div class="mb-10 text-justify">
-    Tengo +3 años de experiencia en el desarrollo de aplicaciones web y móviles.
+  <div class="mb-10">
+    Tengo +4 años de experiencia en el desarrollo de aplicaciones web y móviles.
     He trabajado tanto en frontend como en backend, enfoicandome a proyectos
     personales y de terceros. Trabajo con tecnologías como React, Astro, NodeJS,
     MongoDB, MySQL, Java, Flutter entre otras. En mi tiempo libre me gusta
@@ -27,6 +27,10 @@ import TimeLineElement from "@components/TimeLine.astro";
       modality="En remoto"
     >
       <p class="list-disc my-6">Actualmente en proyectos de Bancolombia</p>
+      <ul class="list-disc pl-5 my-6">
+        <li>Desarrollo con Spring Boot, WebFlux y Reactor</li>
+        <li>Manejo y creación de pipelines con Azure</li>
+      </ul>
     </TimeLineElement>
 
     <TimeLineElement
@@ -90,12 +94,12 @@ import TimeLineElement from "@components/TimeLine.astro";
 
   <div class="time-line-container grid gap-4 mb-10">
     <TimeLineElement
-      title="Tecnólogo en Sistematización de Datos"
-      subtitle="2015 - 2021 en Universidad Distrital, Bogotá, Colombia"
-    />
-    <TimeLineElement
       title="Ingeniería en Telemática"
       subtitle="2022 - actualmente (10º semestre) en Universidad Distrital, Bogotá, Colombia"
+    />
+    <TimeLineElement
+      title="Tecnólogo en Sistematización de Datos"
+      subtitle="2015 - 2021 en Universidad Distrital, Bogotá, Colombia"
     />
   </div>
 

@@ -1,14 +1,14 @@
 ---
-import { CollectionEntry } from "astro:content";
+import { CollectionEntry } from 'astro:content'
 
 export type Props = {
-  previous: CollectionEntry<"blog">;
-  next: CollectionEntry<"blog">;
-};
+  previous: CollectionEntry<'blog'>
+  next: CollectionEntry<'blog'>
+}
 
-const { previous, next } = Astro.props;
+const { previous, next } = Astro.props
 
-const show = previous || next;
+const show = previous || next
 ---
 
 {

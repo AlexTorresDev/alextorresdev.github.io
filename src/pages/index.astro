@@ -1,21 +1,19 @@
 ---
-export const prerender = false;
+import { getCollection } from 'astro:content'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import Social from '@components/Social.astro'
+import NoPost from '@components/NoPost.astro'
+import About from '@components/About.astro'
+import HorizontalCard from '@components/Cards/HorizontalCard.astro'
+import { getProjects } from '@utils/notion-connect'
 
-import { getCollection } from "astro:content";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import Social from "@components/Social.astro";
-import NoPost from "@components/NoPost.astro";
-import About from "@components/About.astro";
-import HorizontalCard from "@components/Cards/HorizontalCard.astro";
-import { getProjects } from "@utils/notion-connect";
-
-const posts = (await getCollection("blog")).sort(
+const posts = (await getCollection('blog')).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+)
 
-const projects = await getProjects();
-const last_posts = posts.slice(0, 3);
-const last_projects = projects.slice(0, 3);
+const projects = await getProjects()
+const last_posts = posts.slice(0, 3)
+const last_projects = projects.slice(0, 3)
 ---
 
 <BaseLayout>
@@ -46,7 +44,10 @@ const last_projects = projects.slice(0, 3);
   }
 
   <div class="flex justify-center mt-4">
-    <a class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2" href="/projects">
+    <a
+      class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2"
+      href="/projects"
+    >
       Ver todos los proyectos
     </a>
   </div>
@@ -67,7 +68,7 @@ const last_projects = projects.slice(0, 3);
             title={post.data.title}
             img={post.data.heroImage?.source}
             desc={post.data.description}
-            url={"/blog/" + post.slug}
+            url={'/blog/' + post.slug}
             target="_self"
             tags={post.data.tags}
           />
@@ -77,8 +78,11 @@ const last_projects = projects.slice(0, 3);
     )
   }
 
-  <div class="flex justify-center mt-4 mb-20">
-    <a class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2" href="/blog">
+  <div class="flex justify-center mt-4">
+    <a
+      class="btn btn-primary btn-sm text-white hover:saturate-150 hover:scale-110 hover:-rotate-2"
+      href="/blog"
+    >
       Ver tas las publicaciones
     </a>
   </div>
