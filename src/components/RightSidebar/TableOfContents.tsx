@@ -1,6 +1,5 @@
 import type { MarkdownHeading } from 'astro';
 import type { FunctionalComponent } from 'preact';
-import { unescape } from 'html-escaper';
 import { useState, useEffect, useRef } from 'preact/hooks';
 
 type ItemOffsets = {
@@ -78,7 +77,7 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTi
                 href={`#${heading.slug}`}
                 onClick={onLinkClick}
               >
-                {unescape(heading.text)}
+                {heading.text}
               </a>
             </li>
           ))}
