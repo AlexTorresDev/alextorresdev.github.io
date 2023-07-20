@@ -5,6 +5,9 @@ on:
     branches:
       - main
   pull_request:
+    branches:
+      - main
+    types: [opened, synchronize]
 
   workflow_dispatch:
 
@@ -14,6 +17,14 @@ permissions:
   id-token: write
 
 jobs:
+  avoid_redundant:
+    name: ❌ Avoid redundant builds
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: styfle/cancel-workflow-action@0.9.1
+        with:
+          access_token: ${{ github.token }}
+
   build:
     name: 📦 Build
     runs-on: ubuntu-22.04
@@ -29,7 +40,7 @@ jobs:
 
   deploy:
     name: 🚀 Deploy
-    if: github.ref == 'refs/heads/main'
+    if: github.event_name == 'push'
     needs: build
     runs-on: ubuntu-22.04
     environment:
