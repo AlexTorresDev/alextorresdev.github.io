@@ -15,10 +15,10 @@ export const getProjects = async () => {
     const { name, image, description, status, languages, tags, repo } = properties
 
     return {
-      name: name.title[0].plain_text,
-      image: image.files[0].file.url,
-      description: description.rich_text[0].plain_text,
-      status: status.status.name,
+      name: name.title.length > 0 ? name.title[0].plain_text : '',
+      image: image.files.length > 0 ? image.files[0].file.url : '/images/no-image.webp',
+      description: description.rich_text.length > 0 ? description.rich_text[0].plain_text : '',
+      status: status.status.name ?? 'Sin estado',
       languages: languages.multi_select.map((lang) => lang.name),
       tags: tags.multi_select.map((tag) => tag.name),
       repo: repo.url,
