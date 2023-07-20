@@ -2,7 +2,9 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [main]
+    branches:
+      - main
+  pull_request:
 
   workflow_dispatch:
 
@@ -13,18 +15,21 @@ permissions:
 
 jobs:
   build:
+    name: 📦 Build
     runs-on: ubuntu-22.04
     steps:
-      - name: Checkout your repository using git
+      - name: Checkout repository
         uses: actions/checkout@v3
       - name: Create environment variables
         run: |
           echo "NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}" > .env
           echo "NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}" >> .env
-      - name: Install, build, and upload your site
+      - name: Install, build, and upload artifact
         uses: withastro/action@v0
 
   deploy:
+    name: 🚀 Deploy
+    if: github.ref == 'refs/heads/main'
     needs: build
     runs-on: ubuntu-22.04
     environment:
@@ -33,4 +38,4 @@ jobs:
     steps:
       - name: Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v1
+        uses: actions/deploy-pages@v2

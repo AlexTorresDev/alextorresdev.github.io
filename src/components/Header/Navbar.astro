@@ -1,42 +1,42 @@
 ---
-const { isCompact } = Astro.props;
+const { isCompact } = Astro.props
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname
 
 const menuItems = [
   {
-    href: "/",
-    text: "Inicio",
+    href: '/',
+    text: 'Inicio'
   },
   {
-    href: "/projects/",
-    text: "Proyectos",
-  },
-    {
-    href: "/blog",
-    text: "Blog",
+    href: '/projects/',
+    text: 'Proyectos'
   },
   {
-    href: "/cv/",
-    text: "CV",
+    href: '/blog',
+    text: 'Blog'
   },
   {
-    href: "mailto:contacto@alextrs.dev",
-    text: "Contacto",
+    href: '/cv/',
+    text: 'CV'
   },
-];
+  {
+    href: 'mailto:contacto@alextrs.dev',
+    text: 'Contacto'
+  }
+]
 
-const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, "/blog");
+const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, '/blog')
 ---
 
 <ul
   class:list={[
-    "menu gap-2",
+    'menu gap-2',
     {
-      "menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52":
+      'menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52':
         isCompact,
-      "menu-horizontal px-1": !isCompact,
-    },
+      'menu-horizontal px-1': !isCompact
+    }
   ]}
 >
   {
@@ -44,10 +44,10 @@ const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, "/blog");
       <li>
         <a
           class:list={[
-            "py-[6px]",
+            'py-[6px]',
             {
-              "bg-primary text-white": currentItem === item.href,
-            },
+              'bg-primary text-white saturate-150 font-medium': currentItem === item.href
+            }
           ]}
           href={item.href}
         >

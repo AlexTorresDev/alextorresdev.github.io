@@ -1,7 +1,7 @@
 ---
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
-import { Image } from "@astrojs/image/components";
-import Badge from "@components/Badge.astro";
+const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
+import { Image } from '@astrojs/image/components'
+import Badge from '@components/Badge.astro'
 ---
 
 <div
@@ -24,11 +24,7 @@ import Badge from "@components/Badge.astro";
       <div class="grow w-full">
         <h2 class="flex items-center gap-3 text-xl font-bold">
           {title}
-          {
-            badge && (
-              <Badge text={badge} />
-            )
-          }
+          {badge && <Badge text={badge} />}
         </h2>
         <p class="py-1 text-1xl">{desc}</p>
         <div class="card-actions justify-end">

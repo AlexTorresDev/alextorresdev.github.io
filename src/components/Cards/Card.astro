@@ -1,8 +1,8 @@
 ---
-import { Image } from "@astrojs/image/components";
-import Badge from "@components/Badge.astro";
+import { Image } from '@astrojs/image/components'
+import Badge from '@components/Badge.astro'
 
-const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
+const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
 ---
 
 <div class="w-full">
@@ -20,10 +20,8 @@ const { title, img, desc, url, badge, tags, target = "_blank" } = Astro.props;
       <div class="card-body p-6 gap-4">
         <div class="flex items-center justify-between gap-4 card-title">
           <h2>{title}</h2>
-          {
-            badge && <Badge text={badge} />
-          }
-        </d>
+          {badge && <Badge text={badge} />}
+        </div>
         <p>{desc}</p>
         <div class="card-actions justify-end">
           {

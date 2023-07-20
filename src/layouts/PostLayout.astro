@@ -1,32 +1,28 @@
 ---
-import type { MarkdownHeading } from "astro";
-import { CollectionEntry, getCollection, getEntries } from "astro:content";
-import { Image } from "@astrojs/image/components";
-import { marked } from "marked";
-import dayjs from "dayjs";
-import localizedFormat from "dayjs/plugin/localizedFormat";
+import type { MarkdownHeading } from 'astro'
+import { CollectionEntry, getCollection, getEntries } from 'astro:content'
+import { Image } from '@astrojs/image/components'
+import snarkdown from 'snarkdown'
+import { SITE_TITLE } from 'src/config'
+import { GITHUB_EDIT_URL } from 'src/consts'
+import BaseLayout from '@layouts/BaseLayout.astro'
+import RightSidebar from '@components/RightSidebar/RightSidebar.astro'
+import TableOfContents from '@components/RightSidebar/TableOfContents'
+import Navigation from '@components/Navigation.astro'
+import Badge from '@components/Badge.astro'
 
-import { SITE_TITLE } from "src/config";
-import { GITHUB_EDIT_URL } from "src/consts";
-import BaseLayout from "@layouts/BaseLayout.astro";
-import RightSidebar from "@components/RightSidebar/RightSidebar.astro";
-import TableOfContents from "@components/RightSidebar/TableOfContents";
-import Navigation from "@components/Navigation.astro";
-import Badge from "@components/Badge.astro";
+type Props = CollectionEntry<'blog'>['data'] & {
+  id: string
+  headings: MarkdownHeading[]
+}
 
-marked.setOptions({
-  mangle: false,
-  headerIds: false,
-});
+const dateFormat = Intl.DateTimeFormat('es-ES', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+})
 
-dayjs.extend(localizedFormat);
-
-type Props = CollectionEntry<"blog">["data"] & {
-  id: string;
-  headings: MarkdownHeading[];
-};
-
-const postEntries = await getCollection("blog");
+const postEntries = await getCollection('blog')
 
 const {
   id,
@@ -37,33 +33,33 @@ const {
   pubDate,
   tags,
   updatedDate,
-  relatedPosts,
-} = Astro.props;
+  relatedPosts
+} = Astro.props
 
-const displayDate = dayjs(pubDate).format("ll");
-const displayUpdateDate = dayjs(updatedDate).format("ll");
+const displayDate = dateFormat.format(pubDate)
+const displayUpdateDate = dateFormat.format(updatedDate)
 
-const currentPage = Astro.url.pathname;
-const currentFile = `src/content${currentPage.replace(/\/?docs/, "")}.md`;
-const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`;
+const currentPage = Astro.url.pathname
+const currentFile = `src/content${currentPage.replace(/\/?docs/, '')}.md`
+const githubEditUrl = `${GITHUB_EDIT_URL}/${currentFile}`
 
 const index = postEntries.findIndex(
   (p) => p.id === id && p.data.pubDate === pubDate
-);
+)
 const pagination = {
   previous: postEntries[index + 1],
-  next: postEntries[index - 1],
-};
+  next: postEntries[index - 1]
+}
 
-let relativePosts: CollectionEntry<"blog">[] = [];
+let relativePosts: CollectionEntry<'blog'>[] = []
 
 if (relatedPosts) {
-  relativePosts = await getEntries(relatedPosts);
+  relativePosts = await getEntries(relatedPosts)
 }
 ---
 
 <BaseLayout
-  title={`${title} - ${SITE_TITLE.split("-")[0]}`}
+  title={`${title} - ${SITE_TITLE.split('-')[0]}`}
   description={description}
   image={heroImage?.source}
 >
@@ -85,7 +81,7 @@ if (relatedPosts) {
             {
               updatedDate && (
                 <div>
-                  Última vez actualizado: <time>{displayUpdateDate}</time>{" "}
+                  Última vez actualizado: <time>{displayUpdateDate}</time>{' '}
                 </div>
               )
             }
@@ -138,18 +134,18 @@ if (relatedPosts) {
         heroImage && (
           <div class="mb-10">
             <Image
-              aspectRatio={"16:9"}
+              aspectRatio={'16:9'}
               width={750}
               height={422}
               format="webp"
               src={heroImage.source}
               alt={title}
-              class="w-full rounded overflow-hidden -mb-2"
+              class="w-full rounded overflow-hidden mb-2"
             />
             {heroImage.attribution && (
               <div
                 class="text-center text-sm opacity-60"
-                set:html={marked(heroImage.attribution)}
+                set:html={snarkdown(heroImage.attribution)}
               />
             )}
           </div>
