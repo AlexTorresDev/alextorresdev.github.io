@@ -1,4 +1,5 @@
 name: Release
+run-name: Release ${{ github.event.workflow_run.head_commit.message }}
 
 on:
   workflow_run:
@@ -62,22 +63,16 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Get build artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: build.yml
-          github_token: ${{ secrets.PAT }}
-          name: github-pages
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-          cache: "npm"
+          cache: pnpm
       - name: Update package.json & add tag
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
-          npm version ${{ needs.deploy.outputs.NEW_VERSION }}
+          pnpm version ${{ needs.deploy.outputs.NEW_VERSION }}
       - name: Set correct commit message
         run: |
           git commit --amend -m "[skip ci] :bookmark: Bump to v${{ needs.deploy.outputs.NEW_VERSION }}"
