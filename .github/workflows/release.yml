@@ -54,7 +54,7 @@ jobs:
       ACTUAL_VERSION: ${{ steps.version-info.outputs.ACTUAL_VERSION }}
       NEW_VERSION: ${{ steps.version-info.outputs.NEW_VERSION }}
 
-  commit-version:
+  commit:
     name: 📝 Commit version
     needs: deploy
     if: needs.deploy.outputs.ACTUAL_VERSION != needs.deploy.outputs.NEW_VERSION
@@ -62,17 +62,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Get build artifact
-        uses: dawidd6/action-download-artifact@v2
-        with:
-          workflow: build.yml
-          github_token: ${{ secrets.PAT }}
-          name: github-pages
       - name: Install Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "18.x"
-      - name: Update package.json
+          cache: "npm"
+      - name: Update package.json & add tag
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
@@ -86,11 +81,14 @@ jobs:
           token: ${{ secrets.PAT }}
           tags: true
           branch: main
+    outputs:
+      ACTUAL_VERSION: ${{ needs.deploy.outputs.ACTUAL_VERSION }}
+      NEW_VERSION: ${{ needs.deploy.outputs.NEW_VERSION }}
 
   release:
     name: ✨ Release
-    needs: deploy
-    if: needs.deploy.outputs.ACTUAL_VERSION != needs.deploy.outputs.NEW_VERSION
+    needs: commit
+    if: needs.commit.outputs.ACTUAL_VERSION != needs.commit.outputs.NEW_VERSION
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout repository
