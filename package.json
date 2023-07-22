@@ -2,7 +2,7 @@
   "name": "alextrs.dev",
   "description": "https://alextrs.dev website",
   "type": "module",
-  "version": "2.3.2",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
