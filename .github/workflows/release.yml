@@ -1,0 +1,97 @@
+name: Release
+
+on:
+  workflow_run:
+    workflows:
+      - Build
+    types:
+      - completed
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  deploy:
+    name: 🚀 Deploy
+    if: github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-22.04
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Get build artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build.yml
+          github_token: ${{ secrets.PAT }}
+          name: github-pages
+      - name: Get version artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build.yml
+          github_token: ${{ secrets.PAT }}
+          name: version-info
+      - name: Load version
+        id: version-info
+        run: |
+          echo "ACTUAL_VERSION=$(cat version.txt | grep -o 'ACTUAL_VERSION=.*' | awk -F'=' '{print $2}')" >> $GITHUB_OUTPUT
+          echo "NEW_VERSION=$(cat version.txt | grep -o 'NEW_VERSION=.*' | awk -F'=' '{print $2}')" >> $GITHUB_OUTPUT
+          rm version.txt
+      - name: Reupload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: .
+      - name: Deploy v${{ steps.version-info.outputs.NEW_VERSION }} to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v2
+        if: steps.version-info.outputs.ACTUAL_VERSION != steps.version-info.outputs.NEW_VERSION
+    outputs:
+      ACTUAL_VERSION: ${{ steps.version-info.outputs.ACTUAL_VERSION }}
+      NEW_VERSION: ${{ steps.version-info.outputs.NEW_VERSION }}
+
+  commit-version:
+    name: 📝 Commit version
+    needs: deploy
+    if: needs.deploy.outputs.ACTUAL_VERSION != needs.deploy.outputs.NEW_VERSION
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Get build artifact
+        uses: dawidd6/action-download-artifact@v2
+        with:
+          workflow: build.yml
+          github_token: ${{ secrets.PAT }}
+          name: github-pages
+      - name: Install Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18.x"
+      - name: Update package.json
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "github-actions[bot]@users.noreply.github.com"
+          npm version ${{ needs.deploy.outputs.NEW_VERSION }}
+      - name: Set correct commit message
+        run: |
+          git commit --amend -m "[skip ci] :bookmark: Bump to v${{ needs.deploy.outputs.NEW_VERSION }}"
+      - name: Push changes
+        uses: CasperWA/push-protected@v2
+        with:
+          token: ${{ secrets.PAT }}
+          tags: true
+          branch: main
+
+  release:
+    name: ✨ Release
+    needs: deploy
+    if: needs.deploy.outputs.ACTUAL_VERSION != needs.deploy.outputs.NEW_VERSION
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Launch release
+        uses: softprops/action-gh-release@v1
