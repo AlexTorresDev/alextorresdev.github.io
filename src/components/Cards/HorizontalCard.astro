@@ -1,7 +1,8 @@
 ---
-const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import Badge from '@components/Badge.astro'
+
+const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
 ---
 
 <div
@@ -13,17 +14,18 @@ import Badge from '@components/Badge.astro'
         img && (
           <Image
             src={img}
-            aspectRatio="16:9"
             width={750}
+            height={468}
             format="webp"
             alt={title}
-            class="max-w-full md:max-w-[14rem] rounded-sm"
+            class="max-w-full md:max-w-[15rem] h-[8rem] sm:h-[13rem] md:h-[8rem] rounded-sm object-cover object-center"
+            transition:name={`post-image-${title}`}
           />
         )
       }
       <div class="grow w-full">
         <h2 class="flex items-center gap-3 text-xl font-bold">
-          {title}
+          <span transition:name={`post-title-${title}`}>{title}</span>
           {badge && <Badge text={badge} />}
         </h2>
         <p class="py-1 text-1xl">{desc}</p>

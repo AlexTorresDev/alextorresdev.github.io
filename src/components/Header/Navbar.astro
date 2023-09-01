@@ -46,7 +46,7 @@ const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, '/blog')
           class:list={[
             'py-[6px]',
             {
-              'bg-primary text-white saturate-150 font-medium': currentItem === item.href
+              'bg-primary dark:bg-opacity-40 text-white font-medium': currentItem === item.href
             }
           ]}
           href={item.href}

@@ -1,5 +1,5 @@
 ---
-import { Image } from '@astrojs/image/components'
+import { Image } from 'astro:assets'
 import Badge from '@components/Badge.astro'
 
 const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
@@ -11,11 +11,12 @@ const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
       class="card bg-base-200 border-base-content border-[1px] border-solid border-opacity-10 overflow-hidden rounded-lg h-full transition ease-in-out hover:shadow-xl hover:scale-[102%] hover:bg-base-300"
     >
       <Image
-        aspectRatio="16:9"
         width={750}
+        height={468}
         format="webp"
         src={img}
         alt={title}
+        class='h-[10rem] sm:h-[15rem] object-cover object-center'
       />
       <div class="card-body p-6 gap-4">
         <div class="flex items-center justify-between gap-4 card-title">
