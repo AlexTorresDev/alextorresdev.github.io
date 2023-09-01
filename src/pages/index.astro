@@ -37,6 +37,7 @@ const last_projects = projects.slice(0, 3)
           desc={project.description}
           url={project.repo}
           tags={[...project.tags, ...project.languages]}
+          disableTransition
         />
         <div class="divider my-1 before:bg-transparent after:bg-transparent" />
       </>
@@ -71,6 +72,7 @@ const last_projects = projects.slice(0, 3)
             url={'/blog/' + post.slug}
             target="_self"
             tags={post.data.tags}
+            disableTransition
           />
           <div class="divider my-1 before:bg-transparent after:bg-transparent" />
         </>

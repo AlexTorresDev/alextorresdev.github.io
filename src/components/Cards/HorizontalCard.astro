@@ -2,7 +2,16 @@
 import { Image } from 'astro:assets'
 import Badge from '@components/Badge.astro'
 
-const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
+const {
+  title,
+  img,
+  desc,
+  url,
+  badge,
+  tags,
+  target = '_blank',
+  disableTransition = false
+} = Astro.props
 ---
 
 <div
@@ -11,21 +20,45 @@ const { title, img, desc, url, badge, tags, target = '_blank' } = Astro.props
   <a href={url} target={target}>
     <div class="hero-content flex-col md:flex-row">
       {
-        img && (
-          <Image
-            src={img}
-            width={750}
-            height={468}
-            format="webp"
-            alt={title}
-            class="max-w-full md:max-w-[15rem] h-[8rem] sm:h-[13rem] md:h-[8rem] rounded-sm object-cover object-center"
-            transition:name={`post-image-${title}`}
-          />
+        img && disableTransition && (
+          <div class="hero-content-image">
+            <Image
+              class="max-w-full md:max-w-[15rem] h-[8rem] sm:h-[13rem] md:h-[8rem] rounded-sm object-cover object-center"
+              src={img}
+              alt={title}
+              format="webp"
+              width={750}
+              height={468}
+            />
+          </div>
+        )
+      }
+
+      {
+        img && !disableTransition && (
+          <div class="hero-content-image">
+            <Image
+              class="max-w-full md:max-w-[15rem] h-[8rem] sm:h-[13rem] md:h-[8rem] rounded-sm object-cover object-center"
+              src={img}
+              alt={title}
+              format="webp"
+              width={750}
+              height={468}
+              transition:name={`post-image-${url.replace('/blog/', '')}`}
+            />
+          </div>
         )
       }
       <div class="grow w-full">
         <h2 class="flex items-center gap-3 text-xl font-bold">
-          <span transition:name={`post-title-${title}`}>{title}</span>
+          {disableTransition && <span>{title}</span>}
+          {
+            !disableTransition && (
+              <span transition:name={`post-title-${url.replace('/blog/', '')}`}>
+                {title}
+              </span>
+            )
+          }
           {badge && <Badge text={badge} />}
         </h2>
         <p class="py-1 text-1xl">{desc}</p>

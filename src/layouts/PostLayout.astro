@@ -65,7 +65,7 @@ if (relatedPosts) {
 >
   <div class="md:flex md:gap-16">
     <article class="prose prose-lg prose-img:mx-auto">
-      <h1 class="title my-2 text-4xl font-bold" transition:name={`post-title-${title}`}>
+      <h1 class="title my-2 text-4xl font-bold" transition:name={`post-title-${currentPage.replace('/blog/', '')}`}>
         {title}
       </h1>
       <div class="flex justify-between flex-col gap-6 mt-8">
@@ -142,7 +142,7 @@ if (relatedPosts) {
               src={heroImage.source}
               alt={title}
               class="w-full rounded overflow-hidden mb-2"
-              transition:name={`post-image-${title}`}
+              transition:name={`post-image-${currentPage.replace('/blog/', '')}`}
             />
             {heroImage.attribution && (
               <div

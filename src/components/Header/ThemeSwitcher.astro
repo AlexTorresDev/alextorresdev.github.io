@@ -24,31 +24,3 @@
     </svg>
   </div>
 </label>
-
-<script is:inline>
-const $toggle = document.querySelector('#theme-toggle')
-
-const systemTheme = window.matchMedia('(prefers-color-scheme: dark)').matches
-	? 'dark'
-	: 'light'
-
-let currentTheme = localStorage.getItem('data-theme') || systemTheme
-$toggle.checked = currentTheme === 'light'
-document.documentElement.setAttribute('data-theme', currentTheme)
-
-$toggle.addEventListener('change', () => {
-	currentTheme = $toggle.checked ? 'light' : 'dark'
-	document.documentElement.setAttribute('data-theme', currentTheme)
-	localStorage.setItem('data-theme', currentTheme)
-})
-
-window
-	.matchMedia('(prefers-color-scheme: dark)')
-	.addEventListener('change', (e) => {
-		if (localStorage.getItem('data-theme')) return
-
-		currentTheme = e.matches ? 'dark' : 'light'
-		$toggle.checked = currentTheme === 'light'
-		document.documentElement.setAttribute('data-theme', currentTheme)
-	})
-</script>
