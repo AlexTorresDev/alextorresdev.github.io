@@ -1,14 +1,6 @@
-name: Build & Release
+name: Deploy to GitHub Pages
 
 on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-    types: [opened, synchronize]
-
   workflow_dispatch:
 
 permissions:
@@ -21,23 +13,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build:
-    name: 📦 Build
-    runs-on: ubuntu-22.04
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-      - name: Create environment variables
-        run: |
-          echo "NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}" > .env
-          echo "NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}" >> .env
-      - name: Install, build, and upload artifact
-        uses: withastro/action@v0
-
   release:
-    name: 🚀 Release
+    name: 🚀 Deploy
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-    needs: build
     runs-on: ubuntu-22.04
     environment:
       name: github-pages
