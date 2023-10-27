@@ -2,6 +2,11 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force deploy'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -48,6 +53,6 @@ jobs:
           name: github-pages
           path: artifact
       - name: Deploy to GitHub Pages
-        if: steps.semantic.outputs.new_release_published == 'true'
+        if: steps.semantic.outputs.new_release_published == 'true' || ${{ github.event.inputs.force }} == 'true'
         id: deployment
         uses: actions/deploy-pages@v2
