@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.2](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.1...v1.2.2) (2023-11-19)
+
+
+### Bug Fixes
+
+* **theme:** :adhesive_bandage: Fix change theme error ([6483c53](https://github.com/AlexTorresDev/alextrs.dev/commit/6483c53340ebbc7dcd1cebe4fbc14d3d650325b8))
+
 ## [1.2.1](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.0...v1.2.1) (2023-09-01)
 
 
