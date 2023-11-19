@@ -45,13 +45,18 @@ const { title, description, image = '/images/social_img.webp' } = Astro.props
 ></script>
 
 <script is:inline>
-	if (
-		localStorage.getItem('color-theme') === 'dark' ||
-		(!('color-theme' in localStorage) &&
-			window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		document.documentElement.classList.add('dark')
-	} else {
-		document.documentElement.classList.remove('dark')
+	const checkTheme = () => {
+		if (
+			localStorage.getItem('color-theme') === 'dark' ||
+			(!('color-theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			document.documentElement.classList.add('dark')
+		} else {
+			document.documentElement.classList.remove('dark')
+		}
 	}
+
+	checkTheme()
+	document.addEventListener('astro:after-swap', checkTheme)
 </script>

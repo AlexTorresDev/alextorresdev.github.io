@@ -3,6 +3,8 @@
 	type="button"
 	aria-label="Cambiar tema"
 	class="text-neutral-500 dark:text-neutral-400 hover:bg-neutral-100 dark:hover:bg-neutral-700 focus:outline-none rounded-lg text-sm p-2.5"
+	data-tooltip-target="tooltip-switch-theme"
+	data-tooltip-placement="left"
 >
 	<svg
 		id="theme-toggle-dark-icon"
@@ -28,44 +30,60 @@
 	</svg>
 </button>
 
-<script is:inline>
-	const themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon')
-	const themeToggleLightIcon = document.getElementById(
-		'theme-toggle-light-icon'
-	)
+<div
+	id="tooltip-switch-theme"
+	role="tooltip"
+	class="absolute z-10 invisible inline-block px-3 py-2 text-sm font-medium text-white bg-neutral-700 rounded-lg shadow-sm opacity-0 tooltip dark:bg-neutral-50 dark:text-black"
+>
+	Cambiar tema
+	<div class="tooltip-arrow" data-popper-arrow></div>
+</div>
 
-	if (
-		localStorage.getItem('color-theme') === 'dark' ||
-		(!('color-theme' in localStorage) &&
-			window.matchMedia('(prefers-color-scheme: dark)').matches)
-	) {
-		themeToggleLightIcon.classList.remove('hidden')
-	} else {
-		themeToggleDarkIcon.classList.remove('hidden')
+<script is:inline>
+	const switchTheme = () => {
+		const themeToggleDarkIcon = document.getElementById(
+			'theme-toggle-dark-icon'
+		)
+		const themeToggleLightIcon = document.getElementById(
+			'theme-toggle-light-icon'
+		)
+
+		if (
+			localStorage.getItem('color-theme') === 'dark' ||
+			(!('color-theme' in localStorage) &&
+				window.matchMedia('(prefers-color-scheme: dark)').matches)
+		) {
+			themeToggleLightIcon.classList.remove('hidden')
+		} else {
+			themeToggleDarkIcon.classList.remove('hidden')
+		}
+
+		const themeToggleBtn = document.getElementById('theme-toggle')
+
+		themeToggleBtn.addEventListener('click', () => {
+			themeToggleDarkIcon.classList.toggle('hidden')
+			themeToggleLightIcon.classList.toggle('hidden')
+
+			if (localStorage.getItem('color-theme')) {
+				if (localStorage.getItem('color-theme') === 'light') {
+					document.documentElement.classList.add('dark')
+					localStorage.setItem('color-theme', 'dark')
+				} else {
+					document.documentElement.classList.remove('dark')
+					localStorage.setItem('color-theme', 'light')
+				}
+			} else {
+				if (document.documentElement.classList.contains('dark')) {
+					document.documentElement.classList.remove('dark')
+					localStorage.setItem('color-theme', 'light')
+				} else {
+					document.documentElement.classList.add('dark')
+					localStorage.setItem('color-theme', 'dark')
+				}
+			}
+		})
 	}
 
-	const themeToggleBtn = document.getElementById('theme-toggle')
-
-	themeToggleBtn.addEventListener('click', function () {
-		themeToggleDarkIcon.classList.toggle('hidden')
-		themeToggleLightIcon.classList.toggle('hidden')
-
-		if (localStorage.getItem('color-theme')) {
-			if (localStorage.getItem('color-theme') === 'light') {
-				document.documentElement.classList.add('dark')
-				localStorage.setItem('color-theme', 'dark')
-			} else {
-				document.documentElement.classList.remove('dark')
-				localStorage.setItem('color-theme', 'light')
-			}
-		} else {
-			if (document.documentElement.classList.contains('dark')) {
-				document.documentElement.classList.remove('dark')
-				localStorage.setItem('color-theme', 'light')
-			} else {
-				document.documentElement.classList.add('dark')
-				localStorage.setItem('color-theme', 'dark')
-			}
-		}
-	})
+	switchTheme()
+	document.addEventListener('astro:after-swap', switchTheme)
 </script>
