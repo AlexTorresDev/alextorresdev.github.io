@@ -1,11 +1,11 @@
 ---
 import { ViewTransitions } from 'astro:transitions'
-import '../styles/global.css'
+//import '@/styles/global.css'
 
 export interface Props {
-  title: string
-  description: string
-  image?: string
+	title: string
+	description: string
+	image?: string
 }
 
 const { title, description, image = '/images/social_img.webp' } = Astro.props
@@ -38,40 +38,20 @@ const { title, description, image = '/images/social_img.webp' } = Astro.props
 <meta property="twitter:description" content={description} />
 <meta property="twitter:image" content={new URL(image, Astro.url)} />
 
+<script
+	is:inline
+	defer
+	src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.js"
+></script>
+
 <script is:inline>
-document.addEventListener('DOMContentLoaded', () => {
-	// Mockup code
-	Array.from(document.querySelectorAll('pre')).forEach((element) => {
-		element.removeAttribute('style')
-		element.outerHTML = `<div class="mockup-code">${element.outerHTML}</div>`
-	})
-
-	// Theme toggle
-	const $toggle = document.querySelector('#theme-toggle')
-
-	const systemTheme = window.matchMedia('(prefers-color-scheme: dark)')
-		.matches
-		? 'dark'
-		: 'light'
-
-	let currentTheme = localStorage.getItem('data-theme') || systemTheme
-	$toggle.checked = currentTheme === 'light'
-	document.documentElement.setAttribute('data-theme', currentTheme)
-
-	$toggle.addEventListener('change', () => {
-		currentTheme = $toggle.checked ? 'light' : 'dark'
-		document.documentElement.setAttribute('data-theme', currentTheme)
-		localStorage.setItem('data-theme', currentTheme)
-	})
-
-	window
-		.matchMedia('(prefers-color-scheme: dark)')
-		.addEventListener('change', (e) => {
-			if (localStorage.getItem('data-theme')) return
-
-			currentTheme = e.matches ? 'dark' : 'light'
-			$toggle.checked = currentTheme === 'light'
-			document.documentElement.setAttribute('data-theme', currentTheme)
-		})
-})
+	if (
+		localStorage.getItem('color-theme') === 'dark' ||
+		(!('color-theme' in localStorage) &&
+			window.matchMedia('(prefers-color-scheme: dark)').matches)
+	) {
+		document.documentElement.classList.add('dark')
+	} else {
+		document.documentElement.classList.remove('dark')
+	}
 </script>

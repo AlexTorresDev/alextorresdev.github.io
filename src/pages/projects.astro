@@ -1,14 +1,12 @@
 ---
-import Card from '@components/Cards/Card.astro'
-import BaseLayout from '@layouts/BaseLayout.astro'
-import { getProjects } from '@utils/notion-connect'
-
-const projects = await getProjects()
+import Card from '@/components/Cards/Card.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import projects from '@/data/projects'
 ---
 
 <BaseLayout title="Proyectos">
   <div>
-    <h2 class="text-3xl w-full font-bold mb-6 mt-5">Proyectos</h2>
+    <h2 class="text-4xl font-bold dark:text-white mb-10">Proyectos</h2>
   </div>
 
   <div class="grid md:grid-cols-2 gap-8">

@@ -4,17 +4,26 @@
     "jsx": "react-jsx",
     "jsxImportSource": "preact",
     "strictNullChecks": true,
-    "baseUrl": ".",
+    "baseUrl": "./src",
     "paths": {
-      "@components/*": [
-        "src/components/*"
+      "@/components/*": [
+        "components/*"
       ],
-      "@layouts/*": [
-        "src/layouts/*"
+      "@/pages/*": [
+        "pages/*"
       ],
-      "@utils/*": [
-        "src/utils/*"
+      "@/styles/*": [
+        "styles/*"
       ],
-    },
+      "@/layouts/*": [
+        "layouts/*"
+      ],
+      "@/public/*": [
+        "public/*"
+      ],
+      "@/data/*": [
+        "data/*"
+      ]
+    }
   }
 }

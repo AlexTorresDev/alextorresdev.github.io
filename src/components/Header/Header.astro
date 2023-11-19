@@ -4,54 +4,61 @@ import ThemeSwitcher from './ThemeSwitcher.astro'
 ---
 
 <header
-  class="sticky top-0 z-30 flex h-16 w-full justify-center bg-opacity-90 backdrop-blur transition-all duration-100 bg-base-200 text-base-content shadow-sm"
+	class="sticky bg-white/90 dark:bg-neutral-800/90 w-full z-20 top-0 start-0 backdrop-blur transition-all duration-100 shadow-sm"
 >
-  <div class="navbar">
-    <div class="navbar-start w-4/5 md:w-[inherit]">
-      <div class="dropdown">
-        <label tabindex="0" class="btn btn-ghost lg:hidden">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            class="h-5 w-5"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke="currentColor"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M4 6h16M4 12h8m-8 6h16"></path>
-          </svg>
-        </label>
-        <Navbar isCompact />
-      </div>
-      <a
-        class="inline-flex gap-2 items-end px-2 mx-2 normal-case text-xl transition-all hover:scale-110"
-        href="/"
-      >
-        <svg class="w-8 h-8" viewBox="0 0 892.58 782.59">
-          <path
-            class="fill-primary"
-            d="M424.91,332c39.29-6.79,83-10.21,122.36-16.75,41.86-7,66.6-36,61.26-76.44-9.16-93.1-82.35-203.09-186.7-175.2C384,74,353.3,97.83,330.18,133.36q-53.61,82.37-105.63,165.75C177.39,375,129.74,450.54,83.1,526.71l-.17.24c70.51-96.63,163.45-159.54,333.18-193.25Z"
-            transform="translate(-4.43 -59.23)"></path>
-          <path
-            class="fill-primary contrast-150"
-            d="M519,485.52C368.78,549.87,301.11,705.21,300.9,705.07c0,0-5.62,7.95,0,0,23.87-24.19,55.29-36.79,89.68-45.27,128.27-33.44,186.81,27.47,264.84,125.59,82.44,110,230.85,43.38,241.58-64.62C897.66,553.65,703.89,393.92,519,485.52Z"
-            transform="translate(-4.43 -59.23)"></path>
-          <path
-            class="fill-primary"
-            d="M413.91,502.93c-27.1-9-48.88-27.9-59.76-51.86-13.91-30.66-9.8-70.42,24.52-101.46C182.38,397.25,101,489.72,24.24,639l-.25.45c-42.3,69.92-10.1,135.22,40.57,168.92,49.59,33,124.57,38.81,172-26.33l.07-.09c18.48-24.52,35.08-48.28,51.14-71.26l4.56-6.52h0l.4-.57c.24-.36.49-.71.74-1.07.42-.58.72-1,.95-1.34l.16-.34c6.49-13.68,25-49.88,56.6-90.43,32.57-41.78,68.93-75.79,108.55-101.6A124.16,124.16,0,0,1,413.91,502.93Z"
-            transform="translate(-4.43 -59.23)"></path>
-        </svg>
-        <span class="text-lg md:text-xl">Alex Torres</span>
-      </a>
-    </div>
-    <div class="navbar-center hidden lg:flex">
-      <Navbar />
-    </div>
-    <div class="navbar-end w-1/5 md:w-[inherit]">
-      <ThemeSwitcher />
-    </div>
-  </div>
+	<div
+		class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
+	>
+		<a href="/" class="flex items-center space-x-3 rtl:space-x-reverse text-primary-500">
+			<svg class="w-8 h-8" viewBox="0 0 892.58 782.59">
+				<path
+					style="fill: currentColor;"
+					d="M424.91,332c39.29-6.79,83-10.21,122.36-16.75,41.86-7,66.6-36,61.26-76.44-9.16-93.1-82.35-203.09-186.7-175.2C384,74,353.3,97.83,330.18,133.36q-53.61,82.37-105.63,165.75C177.39,375,129.74,450.54,83.1,526.71l-.17.24c70.51-96.63,163.45-159.54,333.18-193.25Z"
+					transform="translate(-4.43 -59.23)"></path>
+				<path
+					class="contrast-150"
+					style="fill: currentColor;"
+					d="M519,485.52C368.78,549.87,301.11,705.21,300.9,705.07c0,0-5.62,7.95,0,0,23.87-24.19,55.29-36.79,89.68-45.27,128.27-33.44,186.81,27.47,264.84,125.59,82.44,110,230.85,43.38,241.58-64.62C897.66,553.65,703.89,393.92,519,485.52Z"
+					transform="translate(-4.43 -59.23)"></path>
+				<path
+					style="fill: currentColor;"
+					d="M413.91,502.93c-27.1-9-48.88-27.9-59.76-51.86-13.91-30.66-9.8-70.42,24.52-101.46C182.38,397.25,101,489.72,24.24,639l-.25.45c-42.3,69.92-10.1,135.22,40.57,168.92,49.59,33,124.57,38.81,172-26.33l.07-.09c18.48-24.52,35.08-48.28,51.14-71.26l4.56-6.52h0l.4-.57c.24-.36.49-.71.74-1.07.42-.58.72-1,.95-1.34l.16-.34c6.49-13.68,25-49.88,56.6-90.43,32.57-41.78,68.93-75.79,108.55-101.6A124.16,124.16,0,0,1,413.91,502.93Z"
+					transform="translate(-4.43 -59.23)"></path>
+			</svg>
+			<span
+				class="self-center text-2xl font-semibold whitespace-nowrap text-black dark:text-white"
+				>Alex Torres</span
+			>
+		</a>
+
+		<div class="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+			<ThemeSwitcher />
+
+			<button
+				data-collapse-toggle="navbar-sticky"
+				type="button"
+				class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-neutral-500 rounded-lg md:hidden hover:bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:focus:ring-neutral-600"
+				aria-controls="navbar-sticky"
+				aria-expanded="false"
+			>
+				<span class="sr-only">Abrir menú</span>
+				<svg
+					class="w-5 h-5"
+					aria-hidden="true"
+					xmlns="http://www.w3.org/2000/svg"
+					fill="none"
+					viewBox="0 0 17 14"
+				>
+					<path
+						stroke="currentColor"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M1 1h15M1 7h15M1 13h15"></path>
+				</svg>
+			</button>
+		</div>
+
+		<Navbar />
+	</div>
 </header>

@@ -1,8 +1,8 @@
 ---
 import { getCollection } from 'astro:content'
-import BaseLayout from '@layouts/BaseLayout.astro'
-import HorizontalCard from '@components/Cards/HorizontalCard.astro'
-import NoPost from '@components/NoPost.astro'
+import BaseLayout from '@/layouts/BaseLayout.astro'
+import HorizontalCard from '@/components/Cards/HorizontalCard.astro'
+import NoPost from '@/components/NoPost.astro'
 
 export async function getStaticPaths({ paginate }) {
   const posts = await getCollection('blog')
@@ -15,7 +15,7 @@ const { page } = Astro.props
 
 <BaseLayout title="Blog" is404={page.data.length === 0}>
   <div class="mb-5">
-    <h2 class="text-3xl w-full font-bold">Blog</h2>
+    <h2 class="text-3xl font-bold dark:text-white">Blog</h2>
   </div>
 
   {

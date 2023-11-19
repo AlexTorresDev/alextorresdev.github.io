@@ -4,56 +4,51 @@ const { isCompact } = Astro.props
 const currentPath = Astro.url.pathname
 
 const menuItems = [
-  {
-    href: '/',
-    text: 'Inicio'
-  },
-  {
-    href: '/projects/',
-    text: 'Proyectos'
-  },
-  {
-    href: '/blog',
-    text: 'Blog'
-  },
-  {
-    href: '/cv/',
-    text: 'CV'
-  },
-  {
-    href: 'mailto:contacto@alextrs.dev',
-    text: 'Contacto'
-  }
+	{
+		href: '/',
+		text: 'Inicio'
+	},
+	{
+		href: '/projects/',
+		text: 'Proyectos'
+	},
+	{
+		href: '/blog',
+		text: 'Blog'
+	},
+	{
+		href: '/cv/',
+		text: 'CV'
+	}
 ]
 
 const currentItem = currentPath.replace(/\/blog\/?[\w-_]*/, '/blog')
 ---
 
-<ul
-  class:list={[
-    'menu gap-2',
-    {
-      'menu-compact dropdown-content mt-3 p-2 shadow bg-base-100 rounded-box w-52':
-        isCompact,
-      'menu-horizontal px-1': !isCompact
-    }
-  ]}
+<nav
+	class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1"
+	id="navbar-sticky"
 >
-  {
-    menuItems.map((item) => (
-      <li>
-        <a
-          class:list={[
-            'py-[6px]',
-            {
-              'bg-primary dark:bg-opacity-40 text-white font-medium': currentItem === item.href
-            }
-          ]}
-          href={item.href}
-        >
-          {item.text}
-        </a>
-      </li>
-    ))
-  }
-</ul>
+	<ul
+		class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-neutral-100 rounded-lg bg-neutral-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-neutral-800 md:dark:bg-neutral-800 dark:border-neutral-700"
+	>
+		{
+			menuItems.map((item) => (
+				<li>
+					<a
+						class:list={[
+							'block py-1 px-3 text-black dark:text-white rounded hover:bg-neutral-500/30',
+							{
+								'bg-primary-500/40': currentItem === item.href
+							}
+						]}
+						href={item.href}
+						aria-current="page"
+					>
+						{item.text}
+					</a>
+				</li>
+			))
+		}
+	</ul>
+</nav>

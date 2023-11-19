@@ -1,26 +1,46 @@
 ---
 type Props = {
-  title: string
-  subtitle: string
-  modality?: string
+	title: string
+	subtitle: string
+	modality?: string
 }
 
 const { title, subtitle, modality } = Astro.props
 ---
 
-<div class="flex">
-  <div class="education__time">
-    <span class="w-4 h-4 bg-primary block rounded-full mt-1"></span>
-    <span
-      class="education__line bg-primary block h-full w-[2px] translate-x-[7px]"
-    ></span>
-  </div>
-  <div class="experience__data bd-grid px-5">
-    <h3 class="font-semibold">{title}</h3>
-    <span class="font-light text-sm">{subtitle}</span>
-    {modality && <span class="badge badge-primary ml-2">{modality}</span>}
-    <div class="text-justify">
-      <slot />
-    </div>
-  </div>
-</div>
+<li class="mb-10 ms-6">
+	<span
+		class="absolute flex items-center justify-center w-6 h-6 bg-primary-100 rounded-full -start-3 ring-8 ring-transparent dark:bg-primary-900"
+	>
+		<svg
+			class="w-2.5 h-2.5 text-primary-800 dark:text-primary-400"
+			aria-hidden="true"
+			xmlns="http://www.w3.org/2000/svg"
+			fill="currentColor"
+			viewBox="0 0 20 20"
+		>
+			<path
+				d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z"
+			></path>
+		</svg>
+	</span>
+	<h3
+		class="flex items-center mb-1 text-lg font-semibold text-neutral-800 dark:text-white"
+	>
+		{title}
+	</h3>
+	<time
+		class="block mb-2 text-sm font-normal leading-none text-neutral-400 dark:text-neutral-500"
+		>{subtitle}
+		{
+			modality && (
+				<span class="bg-primary-100 text-primary-800 text-sm font-medium me-2 px-2.5 py-0.5 rounded dark:bg-primary-900 dark:text-primary-300 ms-3">
+					{modality}
+				</span>
+			)
+		}
+	</time>
+	<div class="mb-4 text-base font-normal text-neutral-500 dark:text-neutral-400">
+		<slot />
+	</div>
+</li>

@@ -16,10 +16,7 @@ const markdownConfig = {
 }
 
 export default defineConfig({
-  site: 'https://alextrs.dev',
+  site: 'https://alextorresdev.github.io',
   markdown: markdownConfig,
-  image: {
-    domains: ['https://amazonaws.com']
-  },
   integrations: [sitemap(), tailwind(), preact(), mdx(markdownConfig)]
 })

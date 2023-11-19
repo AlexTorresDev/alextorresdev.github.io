@@ -1,20 +1,24 @@
 ---
 type Props = {
-  text: string
+	text: string
 }
 const { text }: Props = Astro.props
 ---
 
 <span
-  class:list={[
-    'badge badge-primary min-w-fit font-normal bg-opacity-60 text-black dark:text-white',
-    {
-      'badge-success': text.toLowerCase() === 'en curso',
-      'badge-warning': text.toLowerCase() === 'cancelado',
-      'badge-info': text.toLowerCase() === 'en pausa',
-      'badge-secondary': text.toLowerCase() === 'próximamente'
-    }
-  ]}
+	class:list={[
+		'text-xs whitespace-nowrap font-medium px-2.5 py-0.5 rounded',
+		{
+			'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300':
+				text.toLowerCase() === 'en desarrollo',
+			'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300':
+				text.toLowerCase() === 'cancelado',
+			'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300':
+				text.toLowerCase() === 'en pausa',
+			'bg-neutral-100 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300':
+				text.toLowerCase() === 'próximamente'
+		}
+	]}
 >
-  {text}
+	{text}
 </span>

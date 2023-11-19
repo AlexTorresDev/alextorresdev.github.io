@@ -2,6 +2,11 @@ name: Deploy to GitHub Pages
 
 on:
   workflow_dispatch:
+    inputs:
+      force:
+        description: 'Force deploy'
+        required: false
+        default: 'false'
 
 permissions:
   contents: write
@@ -27,9 +32,12 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
       - name: Download artifact
-        uses: actions/download-artifact@v3
+        uses: dawidd6/action-download-artifact@v2
         with:
+          workflow: build.yml
+          github_token: ${{ secrets.PAT }}
           name: github-pages
+          path: artifact
       - name: Semantic Release
         id: semantic
         uses: cycjimmy/semantic-release-action@v3
@@ -39,7 +47,12 @@ jobs:
             @semantic-release/git
         env:
           GITHUB_TOKEN: ${{ secrets.PAT }}
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: github-pages
+          path: artifact
       - name: Deploy to GitHub Pages
-        if: steps.semantic.outputs.new_release_published == 'true'
+        if: steps.semantic.outputs.new_release_published == 'true' || ${{ github.event.inputs.force }} == 'true'
         id: deployment
         uses: actions/deploy-pages@v2

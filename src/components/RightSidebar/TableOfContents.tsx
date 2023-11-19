@@ -2,36 +2,13 @@ import type { MarkdownHeading } from 'astro';
 import type { FunctionalComponent } from 'preact';
 import { useState, useEffect, useRef } from 'preact/hooks';
 
-type ItemOffsets = {
-  id: string;
-  topOffset: number;
-};
-
 const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTitle?: boolean }> = ({
   headings = [],
   showTitle = true,
 }) => {
-  const toc = useRef<HTMLUListElement>(null);
   const onThisPageID = 'on-this-page-heading';
-  const itemOffsets = useRef<ItemOffsets[]>([]);
+  const toc = useRef<HTMLDivElement>(null);
   const [currentID, setCurrentID] = useState('overview');
-
-  useEffect(() => {
-    const getItemOffsets = () => {
-      const titles = document.querySelectorAll('article :is(h1, h2, h3, h4)');
-      itemOffsets.current = Array.from(titles).map((title) => ({
-        id: title.id,
-        topOffset: title.getBoundingClientRect().top + window.scrollY,
-      }));
-    };
-
-    getItemOffsets();
-    window.addEventListener('resize', getItemOffsets);
-
-    return () => {
-      window.removeEventListener('resize', getItemOffsets);
-    };
-  }, []);
 
   useEffect(() => {
     if (!toc.current) return;
@@ -64,14 +41,15 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTi
 
   return (
     <>
-      <h2 id={onThisPageID} className="uppercase font-bold text-xl mb-2">
+      <h2 id={onThisPageID} className="uppercase font-bold text-xl mb-2 dark:text-white">
         {showTitle && 'En este artículo'}
       </h2>
-      <ul ref={toc} className='menu menu-compact'>
+      <div ref={toc} className="flex flex-col gap-2 mt-8">
         {headings
           .filter(({ depth }) => depth > 1 && depth < 4)
           .map((heading) => (
-            <li key={heading.slug} >
+            <span key={heading.slug} className="flex items-center text-sm font-medium text-neutral-800 dark:text-neutral-300">
+              <span className={`flex w-2.5 h-2.5 rounded-full me-3 flex-shrink-0 ${currentID === heading.slug ? 'bg-primary-400 dark:bg-primary-700' : 'bg-neutral-300 dark:bg-neutral-600'}`}></span>
               <a
                 className={currentID === heading.slug ? 'active' : ''}
                 href={`#${heading.slug}`}
@@ -79,9 +57,9 @@ const TableOfContents: FunctionalComponent<{ headings: MarkdownHeading[], showTi
               >
                 {heading.text}
               </a>
-            </li>
+            </span>
           ))}
-      </ul>
+      </div>
     </>
   );
 };

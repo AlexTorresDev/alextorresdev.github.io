@@ -1,35 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 
+import colors from 'tailwindcss/colors'
+
 module.exports = {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	darkMode: ['class', '[data-theme="dark"]'],
-	theme: {
-		extend: {
-		},
-	},
-	daisyui: {
-		themes: [
-			{
-				light: {
-					...require("daisyui/src/theming/themes")["[data-theme=light]"],
-					"primary": "#10b981",
-					"secondary": "#3b82f6",
-					"accent": "#06b6d4",
-					"base-100": "#fafafa",
-					"base-200": "#f2f2f2",
-					"base-300": "#e5e5e5",
-				},
-				dark: {
-					...require("daisyui/src/theming/themes")["[data-theme=forest]"],
-					"primary": "#10b981",
-					"secondary": "#3b82f6",
-					"accent": "#06b6d4",
-					'base-100': '#212121',
-					'base-200': '#1e1e1e',
-					'base-300': '#1b1b1b',
-				},
-			},
-		],
-	},
-	plugins: [require("@tailwindcss/typography"), require("daisyui")],
+  content: [
+    './src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}',
+    './node_modules/flowbite/**/*.js'
+  ],
+  darkMode: ['class'],
+  theme: {
+    colors: {
+      primary: colors.emerald,
+      neutral: colors.neutral
+    }
+  },
+  plugins: [
+    require('flowbite/plugin'),
+    require('flowbite-typography')
+  ]
 }

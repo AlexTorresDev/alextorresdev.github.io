@@ -1,10 +1,14 @@
 ---
-import Social from '@components/Social.astro'
+import Social from '@/components/Social.astro'
 ---
 
-<footer class="footer footer-center flex flex-col gap-6 mb-6 pt-28">
-  <Social />
-  <div class="inline opacity-75 px-4">
-    Creado por <span class="font-bold">Alex Torres</span> con el ❤️ y mucho ☕
-  </div>
+<footer class="bg-white rounded-lg shadow m-4 dark:bg-neutral-800">
+	<div
+		class="w-full mx-auto max-w-screen-xl p-4 flex flex-col md:flex-row gap-5 md:gap-0 items-center md:justify-between"
+	>
+		<span class="text-sm text-neutral-500 sm:text-center dark:text-neutral-400">
+			Creado por <span class="font-bold">Alex Torres</span> con el ❤️ y mucho ☕
+		</span>
+		<Social inFooter />
+	</div>
 </footer>
