@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: Deploy
 
 on:
   workflow_dispatch:
@@ -53,6 +53,6 @@ jobs:
           name: github-pages
           path: artifact
       - name: Deploy to GitHub Pages
-        if: steps.semantic.outputs.new_release_published == 'true' || ${{ github.event.inputs.force }} == 'true'
+        if: ${{ steps.semantic.outputs.new_release_published }} == 'true' || ${{ github.event.inputs.force }} == 'true'
         id: deployment
         uses: actions/deploy-pages@v2

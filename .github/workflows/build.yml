@@ -26,10 +26,6 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
-      - name: Create environment variables
-        run: |
-          echo "NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}" > .env
-          echo "NOTION_DATABASE_ID: ${{ secrets.NOTION_DATABASE_ID }}" >> .env
       - name: Install, build, and upload artifact
         uses: withastro/action@v0
         
