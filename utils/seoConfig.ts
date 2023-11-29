@@ -23,21 +23,22 @@ export const manifest: Partial<ManifestOptions> = {
   theme_color: '#10b981',
   background_color: '#171717',
   display: 'minimal-ui',
+  lang: 'es',
   icons: [
     {
-      src: '/favicon.svg',
+      src: '/images/favicon_192x192.png',
       sizes: '192x192',
-      type: 'image/svg'
+      type: 'image/png'
     },
     {
-      src: '/favicon.svg',
+      src: '/images/favicon_512x512.png',
       sizes: '512x512',
-      type: 'image/svg'
+      type: 'image/png'
     },
     {
-      src: '/favicon.svg',
+      src: '/images/favicon_512x512.png',
       sizes: '512x512',
-      type: 'image/svg',
+      type: 'image/png',
       purpose: 'any maskable'
     }
   ]
