@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.2...v1.2.3) (2023-11-29)
+
+
+### Bug Fixes
+
+* :bento: Add PWA meta tags and update favicon images ([39fb4c6](https://github.com/AlexTorresDev/alextrs.dev/commit/39fb4c6e20635c2c1610df0bd108cd9c77d0676a))
+
 ## [1.2.2](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.1...v1.2.2) (2023-11-19)
 
 
