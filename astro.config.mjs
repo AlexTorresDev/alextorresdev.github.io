@@ -22,6 +22,10 @@ const markdownConfig = {
 }
 
 export default defineConfig({
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en']
+  },
   site: seoConfig.baseURL,
   markdown: markdownConfig,
   integrations: [
