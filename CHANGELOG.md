@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.3...v1.2.4) (2023-12-10)
+
+
+### Bug Fixes
+
+* :package: Fix tailwind ([bf99139](https://github.com/AlexTorresDev/alextrs.dev/commit/bf99139b8b522aefd9205995e1ed73ccce8acfe6))
+
 ## [1.2.3](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.2...v1.2.3) (2023-11-29)
 
 
