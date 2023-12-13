@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.4...v1.2.5) (2023-12-13)
+
+
+### Bug Fixes
+
+* Add privacy policy page ([6766f71](https://github.com/AlexTorresDev/alextrs.dev/commit/6766f71af3cb5df6fb7e3354cdd7079d45d5bf36))
+
 ## [1.2.4](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.3...v1.2.4) (2023-12-10)
 
 
