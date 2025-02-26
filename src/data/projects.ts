@@ -13,7 +13,7 @@ const projects: Project[] = [
     image: '/images/projects/rick-morty-flutter.webp',
     name: 'Rick And Morty Flutter App',
     description: 'Aplicación creada en Flutter usando Clean Architecture, Riverpod y haciendo consumo de la API de Rick And Morty.',
-    status: 'En desarrollo',
+    status: 'En pausa',
     repo: 'https://github.com/AlexTorresDev/rick-and-morty-app',
     tags: ['Clean Code', 'Flutter', 'Android'],
     languages: ['Dart']
@@ -31,7 +31,7 @@ const projects: Project[] = [
     image: '/images/projects/cet.webp',
     name: 'Custom Electron Titlebar',
     description: 'Librería para personalizar la barra de titulo de una aplicación electron al estilo VS Code, que es 100% personalizable.',
-    status: 'En desarrollo',
+    status: 'Cancelado',
     repo: 'https://github.com/AlexTorresDev/custom-electron-titlebar',
     tags: ['Electron', 'NodeJS'],
     languages: ['TypeScript']

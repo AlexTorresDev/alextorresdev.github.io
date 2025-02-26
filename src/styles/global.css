@@ -1,6 +1,4 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 .bg-container {
   background: radial-gradient(#10b981, transparent 35%) no-repeat -175vw -70vh / 250vw 300vh,

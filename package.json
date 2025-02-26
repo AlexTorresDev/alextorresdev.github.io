@@ -1,46 +1,46 @@
 {
-  "name": "alextrs.dev",
-  "description": "https://alextrs.dev website",
-  "type": "module",
-  "version": "1.0.1",
-  "private": true,
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AlexTorresDev/alextrs.dev.git"
-  },
-  "keywords": [],
-  "author": "Alex Torres",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AlexTorresDev/alextrs.dev/issues"
-  },
-  "homepage": "https://github.com/AlexTorresDev/alextrs.dev#readme",
-  "dependencies": {
-    "@astrojs/mdx": "^2.0.0",
-    "@astrojs/preact": "3.0.1",
-    "@astrojs/rss": "^4.0.1",
-    "@astrojs/sitemap": "3.0.3",
-    "@astrojs/tailwind": "5.0.3",
-    "astro": "4.0.3",
-    "flowbite": "2.2.0",
-    "preact": "10.19.3",
-    "sharp": "0.33.0",
-    "snarkdown": "^2.0.0",
-    "tailwind": "4.0.0",
-    "vite-plugin-pwa": "^0.17.4"
-  },
-  "devDependencies": {
-    "flowbite-typography": "1.0.3",
-    "standard": "17.1.0"
-  },
-  "eslintConfig": {
-    "extends": "./node_modules/standard/eslintrc.json"
-  }
+	"name": "alextrs.dev",
+	"description": "https://alextrs.dev website",
+	"type": "module",
+	"version": "1.0.1",
+	"private": true,
+	"scripts": {
+		"dev": "astro dev",
+		"start": "astro dev",
+		"build": "astro build",
+		"preview": "astro preview",
+		"astro": "astro"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/AlexTorresDev/alextrs.dev.git"
+	},
+	"keywords": [],
+	"author": "Alex Torres",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/AlexTorresDev/alextrs.dev/issues"
+	},
+	"homepage": "https://github.com/AlexTorresDev/alextrs.dev#readme",
+	"dependencies": {
+		"@astrojs/mdx": "4.0.8",
+		"@astrojs/preact": "4.0.4",
+		"@astrojs/rss": "4.0.11",
+		"@astrojs/sitemap": "3.2.1",
+		"@tailwindcss/vite": "4.0.9",
+		"astro": "^5.3.1",
+		"flowbite": "3.1.2",
+		"preact": "10.26.2",
+		"sharp": "0.33.5",
+		"snarkdown": "2.0.0",
+		"tailwindcss": "4.0.9",
+		"vite-plugin-pwa": "0.21.1"
+	},
+	"devDependencies": {
+		"flowbite-typography": "1.0.5",
+		"standard": "17.1.2"
+	},
+	"eslintConfig": {
+		"extends": "./node_modules/standard/eslintrc.json"
+	}
 }

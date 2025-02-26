@@ -12,9 +12,9 @@ const { text }: Props = Astro.props
 			'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-300':
 				text.toLowerCase() === 'en desarrollo',
 			'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300':
-				text.toLowerCase() === 'cancelado',
-			'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300':
 				text.toLowerCase() === 'en pausa',
+			'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-300':
+				text.toLowerCase() === 'cancelado',
 			'bg-neutral-100 text-neutral-800 dark:bg-neutral-900 dark:text-neutral-300':
 				text.toLowerCase() === 'próximamente'
 		}
