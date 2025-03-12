@@ -4,6 +4,7 @@
 	"type": "module",
 	"version": "1.0.1",
 	"private": true,
+	"packageManager": "pnpm",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
