@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.6](https://github.com/AlexTorresDev/alextorresdev.github.io/compare/v1.2.5...v1.2.6) (2025-07-31)
+
+
+### Bug Fixes
+
+* update experience years in About component and clean up social data ([ceb78db](https://github.com/AlexTorresDev/alextorresdev.github.io/commit/ceb78dbfd8d41d51708167bcfcea8e9ce98d54ba))
+
 ## [1.2.5](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.2.4...v1.2.5) (2023-12-13)
 
 
