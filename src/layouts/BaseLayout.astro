@@ -42,9 +42,8 @@ const isChristmas = (
 
 {isChristmas && (
 	<div id="snow-root" aria-hidden="true"></div>
+	<script src="https://unpkg.com/@le-pepe/snow-effect"></script>
 	<script>
-		import '@le-pepe/snow-effect';
-
 		const createSnow = (color) => {
 			const root = document.getElementById('snow-root');
 			if (!root) return;
