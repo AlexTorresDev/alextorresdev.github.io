@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.7](https://github.com/AlexTorresDev/alextorresdev.github.io/compare/v1.2.6...v1.2.7) (2025-12-12)
+
+
+### Bug Fixes
+
+* remove unused import of snow-effect script and streamline snow effect integration ([9d32645](https://github.com/AlexTorresDev/alextorresdev.github.io/commit/9d326458596176da015e58082d2242b396afae86))
+
 ## [1.2.6](https://github.com/AlexTorresDev/alextorresdev.github.io/compare/v1.2.5...v1.2.6) (2025-07-31)
 
 
