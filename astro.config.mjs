@@ -3,7 +3,6 @@ import { defineConfig } from 'astro/config'
 // Astro integration imports
 import mdx from '@astrojs/mdx'
 import sitemap from '@astrojs/sitemap'
-import preact from '@astrojs/preact'
 import { VitePWA } from 'vite-plugin-pwa'
 
 // Helper imports
@@ -29,7 +28,7 @@ export default defineConfig({
   },
   site: seoConfig.baseURL,
   markdown: markdownConfig,
-  integrations: [sitemap(), preact(), mdx(markdownConfig)],
+  integrations: [sitemap(), mdx(markdownConfig)],
   vite: {
     plugins: [
       VitePWA({
