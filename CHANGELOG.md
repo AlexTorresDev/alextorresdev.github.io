@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.3.0](https://github.com/AlexTorresDev/alextorresdev.github.io/compare/v1.2.7...v1.3.0) (2025-12-24)
+
+
+### Features
+
+* add CV component with experience and education sections; update footer text; integrate CV into homepage ([d19b7fa](https://github.com/AlexTorresDev/alextorresdev.github.io/commit/d19b7fa731379d5a0b7768260a89f6e109867054))
+
 ## [1.2.7](https://github.com/AlexTorresDev/alextorresdev.github.io/compare/v1.2.6...v1.2.7) (2025-12-12)
 
 
