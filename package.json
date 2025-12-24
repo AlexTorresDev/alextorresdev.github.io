@@ -4,7 +4,7 @@
 	"type": "module",
 	"version": "1.0.1",
 	"private": true,
-	"packageManager": "pnpm@10.25.0",
+	"packageManager": "pnpm@10.26.2",
 	"scripts": {
 		"dev": "astro dev",
 		"start": "astro dev",
@@ -28,7 +28,7 @@
 		"@astrojs/rss": "4.0.14",
 		"@astrojs/sitemap": "3.6.0",
 		"@tailwindcss/vite": "4.1.18",
-		"astro": "5.16.5",
+		"astro": "5.16.6",
 		"tailwindcss": "4.1.18",
 		"vite-plugin-pwa": "1.2.0"
 	},

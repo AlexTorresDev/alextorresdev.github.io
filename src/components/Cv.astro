@@ -1,18 +1,13 @@
 ---
-import BaseLayout from '@/layouts/BaseLayout.astro'
-import About from '@/components/About.astro';
+import About from '@/components/About.astro'
 import TimeLineElement from '@/components/TimeLine.astro'
 ---
 
-<BaseLayout title="Hoja de vida">
-	<div class="mb-5">
-		<span class="text-4xl font-bold dark:text-white">Perfil</span>
-	</div>
-
-	<About />
+<section>
+	<h2 class="text-3xl font-bold dark:text-white mb-5 mt-28">🎉 Hoja de vida</h2>
 
 	<div class="mt-12 mb-8">
-		<span class="text-4xl font-bold dark:text-white">Experiencia</span>
+		<span class="text-2xl font-bold dark:text-white">Experiencia</span>
 	</div>
 
 	<ol class="relative border-s border-neutral-200 dark:border-neutral-700">
@@ -21,10 +16,12 @@ import TimeLineElement from '@/components/TimeLine.astro'
 			subtitle="Nov 2025 - actualmente en TCM Partners, Bogotá, Colombia"
 			modality="En remoto"
 		>
-			<p class="list-disc my-6">Desarrollo de nuvas funcionalidades para la tesorería de Banco ITAU:</p>
+			<p class="list-disc my-6">
+				Desarrollo de nuvas funcionalidades para la tesorería de Banco ITAU:
+			</p>
 			<ul class="list-disc pl-5 my-6">
 				<li>SQL Server</li>
-				<li>C#</li>
+				<li>Backend en C#</li>
 			</ul>
 		</TimeLineElement>
 
@@ -98,7 +95,7 @@ import TimeLineElement from '@/components/TimeLine.astro'
 	</ol>
 
 	<div class="mt-12 mb-8">
-		<span class="text-4xl font-bold dark:text-white">Educación</span>
+		<span class="text-2xl font-bold dark:text-white">Educación</span>
 	</div>
 
 	<ol class="relative border-s border-neutral-200 dark:border-neutral-700">
@@ -129,7 +126,9 @@ import TimeLineElement from '@/components/TimeLine.astro'
   </ul> -->
 
 	<div class="mt-12 mb-8">
-		<div class="text-4xl font-bold dark:text-white">Conocimentos y aptitudes</div>
+		<div class="text-2xl font-bold dark:text-white">
+			Conocimentos y aptitudes
+		</div>
 	</div>
 
 	<ul class="list-disc md:columns-5 columns-2 mx-6 dark:text-white">
@@ -145,4 +144,4 @@ import TimeLineElement from '@/components/TimeLine.astro'
 		<li>Java</li>
 		<li>Spring Boot</li>
 	</ul>
-</BaseLayout>
+</section>
