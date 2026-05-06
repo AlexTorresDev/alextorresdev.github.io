@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.6.0](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.5.0...v1.6.0) (2026-05-06)
+
+
+### Features
+
+* implement language detection and redirection in index page ([de52f04](https://github.com/AlexTorresDev/alextrs.dev/commit/de52f0408e18ccb6e75ad75880da6eba7070d0f0))
+
 # [1.5.0](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.4.0...v1.5.0) (2026-05-05)
 
 
