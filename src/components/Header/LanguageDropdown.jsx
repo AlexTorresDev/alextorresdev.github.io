@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from "preact/hooks";
 import { languages } from "@/i18n/ui";
+import { getLocalizedPath } from "@/i18n/utils";
 
 const chevron = (
   <svg
@@ -20,7 +21,7 @@ export default function LanguageDropdown({ currentLang, route }) {
   const [open, setOpen] = useState(false);
   const menuRef = useRef(null);
 
-  const getHref = (lang) => (route ? `/${lang}/${route}` : `/${lang}/`);
+  const getHref = (lang) => getLocalizedPath(lang, route);
 
   useEffect(() => {
     const onClick = (event) => {

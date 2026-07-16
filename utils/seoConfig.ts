@@ -1,7 +1,7 @@
 import type { ManifestOptions } from 'vite-plugin-pwa'
 
 export const seoConfig = {
-  baseURL: 'https://alextorresdev.github.io',
+  baseURL: 'https://alextrs.dev',
   description: 'Alex Torres es un desarrollador web que le encanta crear aplicaciones web y móviles.',
   type: 'website',
   image: {

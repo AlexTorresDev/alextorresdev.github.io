@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getLangFromUrl, getLocalizedPath, getRouteWithoutLocale, useTranslations } from '@/i18n/utils'
 
 import LanguageDropdown from './LanguageDropdown.jsx'
 import Logo from './Logo.astro'
@@ -7,12 +7,11 @@ import ThemeSwitcher from './ThemeSwitcher.astro'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
-const pathname = Astro.url.pathname
-const route = pathname.split('/').filter(Boolean).slice(1).join('/')
-const currentPath = `/${lang}/${route}`
+const route = getRouteWithoutLocale(Astro.url)
+const currentPath = getLocalizedPath(lang, route)
 const navItems = [
-	{ href: `/${lang}/`, label: t('nav.home') },
-	{ href: `/${lang}/cv`, label: t('nav.cv') }
+	{ href: getLocalizedPath(lang), label: t('nav.home') },
+	{ href: getLocalizedPath(lang, 'cv'), label: t('nav.cv') }
 ]
 ---
 
@@ -39,7 +38,7 @@ const navItems = [
 				</svg>
 			</label>
 			<a
-				href={`/${lang}`}
+				href={getLocalizedPath(lang)}
 				class="flex items-center space-x-3 rtl:space-x-reverse text-emerald-500"
 			>
 				<Logo />

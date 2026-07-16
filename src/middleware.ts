@@ -3,16 +3,6 @@ import { defineMiddleware } from 'astro:middleware'
 const locales = ['es', 'en'] as const
 const defaultLocale = 'es'
 
-function getPreferredLocale(acceptLanguage: string | null): (typeof locales)[number] {
-	if (!acceptLanguage) return defaultLocale
-
-	const normalized = acceptLanguage.toLowerCase()
-	if (normalized.includes('en')) return 'en'
-	if (normalized.includes('es')) return 'es'
-
-	return defaultLocale
-}
-
 export const onRequest = defineMiddleware((context, next) => {
 	const { pathname, search } = context.url
 
@@ -28,12 +18,21 @@ export const onRequest = defineMiddleware((context, next) => {
 		return next()
 	}
 
-	const [, maybeLocale] = pathname.split('/')
+	if (pathname === '/') {
+		return next()
+	}
+
+	const segments = pathname.split('/').filter(Boolean)
+	const [maybeLocale, ...rest] = segments
+
+	if (maybeLocale === defaultLocale) {
+		const canonicalPath = rest.length > 0 ? `/${rest.join('/')}` : '/'
+		return context.redirect(`${canonicalPath}${search}`, 301)
+	}
+
 	if (locales.includes(maybeLocale as (typeof locales)[number])) {
 		return next()
 	}
 
-	const preferredLocale = getPreferredLocale(context.request.headers.get('accept-language'))
-	const targetPath = pathname === '/' ? '' : pathname
-	return context.redirect(`/${preferredLocale}${targetPath}${search}`, 302)
+	return next()
 })

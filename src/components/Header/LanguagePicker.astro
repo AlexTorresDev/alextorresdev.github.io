@@ -1,13 +1,10 @@
 ---
-import { getLangFromUrl } from '@/i18n/utils'
+import { getLangFromUrl, getLocalizedPath, getRouteWithoutLocale } from '@/i18n/utils'
 import { languages } from '@/i18n/ui'
 
 const currentLang = getLangFromUrl(Astro.url)
-const pathname = Astro.url.pathname
-const route = pathname.split('/').filter(Boolean).slice(1).join('/')
-
-const getHref = (lang: keyof typeof languages) =>
-	route ? `/${lang}/${route}` : `/${lang}/`
+const route = getRouteWithoutLocale(Astro.url)
+const getHref = (lang: keyof typeof languages) => getLocalizedPath(lang, route)
 ---
 
 <nav aria-label="Cambiar idioma" class="hidden md:inline-flex flex-none">

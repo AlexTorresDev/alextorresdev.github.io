@@ -1,5 +1,5 @@
 ---
-import { getLangFromUrl, useTranslations } from '@/i18n/utils'
+import { getLangFromUrl, getLocalizedPath, useTranslations } from '@/i18n/utils'
 
 const lang = getLangFromUrl(Astro.url)
 const t = useTranslations(lang)
@@ -7,9 +7,9 @@ const t = useTranslations(lang)
 
 <nav>
 	<ul>
-		<li><a href={`/${lang}`}>{t('nav.home')}</a></li>
+		<li><a href={getLocalizedPath(lang)}>{t('nav.home')}</a></li>
 		<li>
-			<a href={`/${lang}/privacy-policy`}>{t('nav.about')}</a>
+			<a href={getLocalizedPath(lang, 'cv')}>{t('nav.cv')}</a>
 		</li>
 	</ul>
 </nav>
