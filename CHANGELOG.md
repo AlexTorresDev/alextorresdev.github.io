@@ -1,5 +1,12 @@
 # Changelog
 
+# [1.7.0](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.6.0...v1.7.0) (2026-07-16)
+
+
+### Features
+
+* update workspace configuration and improve localization handling ([c1bbdeb](https://github.com/AlexTorresDev/alextrs.dev/commit/c1bbdebc13aaca185f7f2d7b07c8589ef7063cc2))
+
 # [1.6.0](https://github.com/AlexTorresDev/alextrs.dev/compare/v1.5.0...v1.6.0) (2026-05-06)
 
 
