@@ -57,7 +57,7 @@ const MarkerIcon = ModalityIcon || Icon
 		</time>
 		<span
 			class:list={[
-				'order-1 md:order-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-emerald-500 text-white border border-emerald-400/40 -ml-10.5 md:ml-0',
+				'order-1 md:order-1 inline-flex h-7 w-7 items-center justify-center rounded-full bg-primary text-white border border-primary/40 -ml-10.5 md:ml-0',
 				side === 'left' ? 'md:order-2 md:-mr-10' : 'md:order-1 md:-ml-10'
 			]}
 			title={modality || title}
@@ -66,7 +66,7 @@ const MarkerIcon = ModalityIcon || Icon
 		</span>
 	</div>
 
-	<div class="mt-2 rounded-2xl bg-[linear-gradient(140deg,rgba(16,185,129,0.35),rgba(56,189,248,0.25))] ml-9 md:ml-0">
+	<div class="mt-2 rounded-2xl bg-linear-to-br from-primary/35 to-sky-400/25 ml-9 md:ml-0">
 		<div class="rounded-2xl bg-white/70 p-6 backdrop-blur-md transition-all duration-300 hover:-translate-y-1 hover:shadow-xl dark:bg-white/10">
 			<h3 class="mb-1 text-lg font-semibold text-neutral-800 dark:text-white">
 				{title}

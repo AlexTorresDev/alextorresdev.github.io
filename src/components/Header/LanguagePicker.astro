@@ -23,8 +23,8 @@ const getHref = (lang: keyof typeof languages) => getLocalizedPath(lang, route)
 							class:list={[
 								'inline-flex items-center rounded-full px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.16em] transition-colors duration-200 sm:px-3 sm:py-1.5 sm:text-xs sm:tracking-[0.18em]',
 								{
-									'bg-emerald-600 text-white shadow-sm': isActive,
-									'text-neutral-600 hover:bg-neutral-100 hover:text-emerald-600 dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white':
+									'bg-primary text-white shadow-sm': isActive,
+									'text-neutral-600 hover:bg-neutral-100 hover:text-primary dark:text-neutral-300 dark:hover:bg-neutral-700 dark:hover:text-white':
 										!isActive
 								}
 							]}

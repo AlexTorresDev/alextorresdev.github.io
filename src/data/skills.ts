@@ -55,12 +55,12 @@ export const skills = [
 	{
 		label: 'React',
 		icon: Monitor,
-		tone: 'bg-sky-500/20 text-sky-600 dark:bg-sky-400/25 dark:text-sky-200'
+		tone: 'bg-olive-500/20 text-olive-600 dark:bg-olive-400/25 dark:text-olive-200'
 	},
 	{
 		label: 'Java',
 		icon: Cpu,
-		tone: 'bg-emerald-500/20 text-emerald-600 dark:bg-emerald-400/25 dark:text-emerald-200'
+		tone: 'bg-primary/20 text-primary dark:bg-primary/25 dark:text-primary'
 	},
 	{
 		label: 'Spring Boot',

@@ -17,15 +17,15 @@ export const seoConfig = {
 }
 
 export const manifest: Partial<ManifestOptions> = {
-  name: 'Alex Torres Dev',
-  short_name: 'Alex Torres Dev',
+  name: 'Alex Torres',
+  short_name: 'Alex Torres',
   description: 'Alex Torres es un desarrollador web que le encanta crear aplicaciones web y móviles.',
-  theme_color: '#10b981',
-  background_color: '#171717',
+  theme_color: '#2c6f66',
+  background_color: '#2c6f66',
   display: 'minimal-ui',
   lang: 'es',
   icons: [
-    {
+    /* {
       src: '/images/favicon_192x192.png',
       sizes: '192x192',
       type: 'image/png'
@@ -40,6 +40,6 @@ export const manifest: Partial<ManifestOptions> = {
       sizes: '512x512',
       type: 'image/png',
       purpose: 'any maskable'
-    }
+    } */
   ]
 }

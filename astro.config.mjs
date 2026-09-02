@@ -1,19 +1,16 @@
+// @ts-check
 import { defineConfig } from 'astro/config'
 
-// Astro integration imports
 import sitemap from '@astrojs/sitemap'
 import preact from '@astrojs/preact'
 import { VitePWA } from 'vite-plugin-pwa'
-
-// Helper imports
 import { manifest, seoConfig } from './utils/seoConfig'
-
 import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
 	i18n: {
-		defaultLocale: 'es',
 		locales: ['es', 'en'],
+		defaultLocale: 'es',
 	},
 	site: seoConfig.baseURL,
 	integrations: [sitemap(), preact()],
@@ -32,8 +29,5 @@ export default defineConfig({
 			}),
 			tailwindcss()
 		]
-	},
-	server: {
-		open: true
 	}
 })

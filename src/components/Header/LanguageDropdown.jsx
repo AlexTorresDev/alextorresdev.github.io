@@ -69,7 +69,7 @@ export default function LanguageDropdown({ currentLang, route }) {
                 href={getHref(lang)}
                 class={`flex items-center justify-between rounded-xl px-3 py-2 text-sm font-semibold transition ${
                   isActive
-                    ? "bg-emerald-600 text-white"
+                    ? "bg-primary text-white"
                     : "text-neutral-700 hover:bg-neutral-100 dark:text-neutral-200 dark:hover:bg-neutral-800"
                 }`}
                 aria-current={isActive ? "page" : undefined}

@@ -15,7 +15,7 @@ const navItems = [
 ]
 ---
 
-<header class="w-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur">
+<header class="w-full bg-white/80 dark:bg-neutral-800/80 backdrop-blur z-10">
 	<input id="nav-toggle" type="checkbox" class="peer hidden" />
 	<div class="max-w-7xl flex items-center justify-between mx-auto p-4">
 		<div class="flex items-center gap-3">
@@ -39,7 +39,7 @@ const navItems = [
 			</label>
 			<a
 				href={getLocalizedPath(lang)}
-				class="flex items-center space-x-3 rtl:space-x-reverse text-emerald-500"
+				class="flex items-center rtl:space-x-reverse text-primary"
 			>
 				<Logo />
 			</a>
@@ -52,9 +52,9 @@ const navItems = [
 				navItems.map((item) => (
 					<a
 						href={item.href}
-						class={`rounded-md border px-3 py-1 transition hover:border-emerald-200/70 hover:bg-emerald-50 hover:text-emerald-700 dark:hover:border-emerald-500/30 dark:hover:bg-emerald-500/10 dark:hover:text-emerald-300 ${
+						class={`rounded-md border px-3 py-1 transition hover:border-primary/30 hover:bg-primary/10 hover:text-primary dark:hover:border-primary/30 dark:hover:bg-primary/10 dark:hover:text-primary ${
 							item.href === currentPath
-								? 'border-emerald-300 bg-emerald-50 text-emerald-700 dark:border-emerald-400/50 dark:bg-emerald-500/10 dark:text-emerald-300'
+								? 'border-primary/50 bg-primary/10 text-primary dark:border-primary/50 dark:bg-primary/10 dark:text-primary'
 								: 'border-neutral-200/80 dark:border-neutral-700/70'
 						}`}
 					>
@@ -65,7 +65,9 @@ const navItems = [
 		</nav>
 
 		<div class="flex items-center gap-2">
-			<LanguageDropdown currentLang={lang} route={route} client:load />
+			<div class="hidden md:block">
+				<LanguageDropdown currentLang={lang} route={route} client:load />
+			</div>
 			<ThemeSwitcher />
 		</div>
 	</div>
@@ -78,7 +80,7 @@ const navItems = [
 		class="md:hidden fixed top-4 left-4 z-50 w-80 max-w-[calc(100vw-2rem)] rounded-2xl border border-neutral-200/70 bg-white/95 shadow-2xl backdrop-blur transition origin-top-left opacity-0 scale-95 translate-y-2 pointer-events-none peer-checked:opacity-100 peer-checked:scale-100 peer-checked:translate-y-0 peer-checked:pointer-events-auto dark:border-neutral-700/70 dark:bg-neutral-900/95"
 	>
 		<div class="flex items-center justify-between px-5 py-4">
-			<span class="text font-semibold text-white">Menu</span>
+			<span class="text font-semibold text-black dark:text-white">Menu</span>
 			<label
 				for="nav-toggle"
 				class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-neutral-200 bg-white text-neutral-600 shadow-sm transition hover:bg-neutral-100 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-200 dark:hover:bg-neutral-700"
@@ -109,7 +111,7 @@ const navItems = [
 								href={item.href}
 								class={`block rounded-xl border px-3 py-2 transition hover:bg-neutral-100 dark:hover:bg-neutral-800 ${
 									item.href === currentPath
-										? 'border-emerald-300/80 bg-emerald-50 text-emerald-700 dark:border-emerald-400/50 dark:bg-emerald-500/10 dark:text-emerald-300'
+										? 'border-primary/80 bg-primary/10 text-primary dark:border-primary/50 dark:bg-primary/10 dark:text-primary'
 										: 'border-neutral-200/70 bg-neutral-50/80 dark:border-neutral-700/70 dark:bg-neutral-800/60'
 								}`}
 							>
